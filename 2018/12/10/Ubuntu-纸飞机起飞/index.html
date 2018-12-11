@@ -103,7 +103,11 @@
 		
 
 			
-					<p><strong>1. 下载SSR客户端</strong></p>
+					<hr>
+<h2 id="2018-7-10"><a href="#2018-7-10" class="headerlink" title="2018.7.10"></a>2018.7.10</h2><p>在安装好Ubuntu后，因为想使用Chrome，在登录的时候发现要先break wall一下。</p>
+<p>这时候我觉得需要设置个全局的ssr代理。因此，才有了下面的过程。</p>
+<a id="more"></a>
+<p><strong>1. 下载SSR客户端</strong></p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/ssrbackup/shadowsocksr</span><br></pre></td></tr></table></figure>
 <p><strong>2. 配置SSR的配置文件</strong></p>
 <p>进入刚刚复制下来的文件夹，里面有一个<code>config.json</code>的文件，将它复制一份并命名为<code>config.json.backup</code>作为备份。</p>
@@ -145,7 +149,8 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">700</span> ssr</span><br><span class="line">sudo mv ssr <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span></span><br></pre></td></tr></table></figure>
 <p>5.在命令行里面运行</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssr install # 等待安装完毕</span><br><span class="line">ssr<span class="built_in"> config </span># 填入自己的ssr配置</span><br><span class="line"><span class="comment"># 如果你没有自己的ssr服务器，也可以用 ssr update这个命令，会自己下载配置文件</span></span><br><span class="line">ssr start # 启动ssr</span><br></pre></td></tr></table></figure>
-<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/35362159" target="_blank" rel="noopener">Ubuntu17.10／Ubuntu18.04配置以及美化</a></p>  					
+<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/35362159" target="_blank" rel="noopener">Ubuntu17.10／Ubuntu18.04配置以及美化</a></p>
+  	
 					
 	  </div>     
 	  
@@ -238,11 +243,15 @@
 
 
   <div class="post-footer-meta">
+        
+          <i class="iconfont icon-category"></i>       
+          <a class="category-link" href="/categories/breakwall/">breakwall</a> 	
+      
         	
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/ssr/">ssr</a>    
+            <a class="tag-link" href="/tags/linux/">linux</a> <a class="tag-link" href="/tags/ssr/">ssr</a>    
         	
   </div>
 
@@ -262,11 +271,39 @@
   </div>
   <div class="post-footer-link">
     
+        <a href="/2018/12/11/Python3多进程/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <a class="post-nav-title" href="/2018/12/11/Python3多进程/">
+            Python3多进程</a>
+        </a>
+    
   </div>
 
 </nav>
  
 	
+
+
+    <div id="comment">   
+    </div>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+
+    <script src="//unpkg.com/valine@v1.1.8-beta/dist/Valine.min.js"></script>
+
+    <script>
+        new Valine({
+        el: '#comment',
+        notify:false, 
+        verify:false, 
+        app_id: '0NVqCXxAFcHkrKuXYDlHKQ2M-gzGzoHsz',
+        app_key: 'pszzFrjj2NHh1sIISQMfEE9n',  
+        path:window.location.pathname, 
+        avatar:'mm' ,
+        guest_info:['nick','mail']
+        });
+    </script>
 	
 </article>
 
