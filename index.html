@@ -123,50 +123,14 @@
 
     
 	<div class="typo article-excerpt">	
-		 
+		
 			<p>这篇是<strong>新手向</strong>，<strong>小白向</strong>，CS相关专业的大佬，或者熟练使用计算机的同学，可以关掉了。</p>
 <p>相信用Mac的同学，都有个很难受的问题，就是Mac自带的固态硬盘太小。想在购机的时候就买大容量硬盘，那个价格都够买一箱子的机械了。</p>
-<p>但是这里有个问题就是普遍机械硬盘默认都是<strong>NTFS</strong>格式。Mac只能读不能写，瞬间就感觉自己的硬盘变砖了。</p>
-<p>下面针对三种不同的使用范围，给出我个人三种不同的建议：</p>
-<h2 id="1-硬盘仅用于自己的Mac电脑扩展存储容量"><a href="#1-硬盘仅用于自己的Mac电脑扩展存储容量" class="headerlink" title="1. 硬盘仅用于自己的Mac电脑扩展存储容量"></a>1. 硬盘仅用于自己的Mac电脑扩展存储容量</h2><p>这种情况下，我觉得最好的方法就是无脑格式化成Mac OS X自己的格式，兼容性毋庸置疑是最好的，读写速度也很快。</p>
-<h2 id="2-硬盘数据用于分享且数据不太重要"><a href="#2-硬盘数据用于分享且数据不太重要" class="headerlink" title="2. 硬盘数据用于分享且数据不太重要"></a>2. 硬盘数据用于分享且数据不太重要</h2><p>有时候想用硬盘给同学拷点东西，这时候如果对方是Windows系统的话，就比较尴尬了。😅</p>
-<p>这里也有办法，如果你的数据不太重要，就算丢失了也没关系，可以再来一次的话。</p>
-<p>我建议就是格式化成<strong>exFAT</strong>格式，这种是现在常用大容量U盘的格式。我自己也试过，插入到Windows系统的笔记本上，会显示<strong>新U盘</strong>，可读可写。</p>
-<h2 id="3-硬盘数据较重要且偶尔会分享"><a href="#3-硬盘数据较重要且偶尔会分享" class="headerlink" title="3. 硬盘数据较重要且偶尔会分享"></a>3. 硬盘数据较重要且偶尔会分享</h2><p>这时候的选择就只能是<strong>NTFS</strong>了。首先是目前主流的硬盘格式（毕竟Windows的市场份额摆在这里）且<strong>NTFS</strong>比较容易进行数据恢复。</p>
-<p>那可能有人会疑惑Mac不是写不了<strong>NTFS</strong>吗？</p>
-<p>其实Mac好像在OS X 10.xx 之后就开始支持了NTFS的读写，只是默认情况下并没有打开。</p>
-<p>下面👇就看下如何打开NTFS的读写。</p>
-<h3 id="Step-1-找到终端"><a href="#Step-1-找到终端" class="headerlink" title="Step 1. 找到终端"></a>Step 1. 找到终端</h3><p>呼出<strong>spotlight</strong>，然后输入“终端”或者“terminal”，会出现一个黑色的窗口，然后窗口里面有个小尖尖。</p>
-<p>打开这个应用。</p>
-<h3 id="Step-2-输入命令"><a href="#Step-2-输入命令" class="headerlink" title="Step 2. 输入命令"></a>Step 2. 输入命令</h3><p>在这个黑色的窗口里面敲入下面的命令，建议直接复制：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure></p>
-<p>这时候会提示输入密码，密码就是平时你开机登陆的那个密码。</p>
-<h3 id="Step-3-更改文件"><a href="#Step-3-更改文件" class="headerlink" title="Step 3. 更改文件"></a>Step 3. 更改文件</h3><p>这时候会打开一个新文件，但实际上还是黑色的窗口。</p>
-<p>这时候你要在<strong>英文</strong>输入法状态下，按一下<strong>“a”</strong>。</p>
-<p>这时候你会看到黑色框框的左下角出现一个<strong>“INSERT”</strong>字样。</p>
-<p>这时候你把下面的命令敲到黑色窗口里面，或者直接复制：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="bash">=Store none ntfs rw,auto,nobrowse</span></span><br></pre></td></tr></table></figure></p>
-<p>这时候，用左右的<strong>方向键</strong>，来修改<strong>“Store”</strong>这个单词，改成<strong>你的硬盘的名字</strong>（就是在你Mac桌面上显示的硬盘名字），假如你的硬盘有多个分区，那么改成你想要用的<strong>那个分区的名字</strong>。（实际上还是桌面上的名字，因为多个分区会在Mac桌面上显示多个硬盘，你就选一个就好了）。</p>
-<p>修改完之后，按<code>ESC</code>，然后你发现左下角的<strong>“INSERT”</strong>不见了。</p>
-<p>再按<code>shift</code>+<code>:</code>，后面那个是冒号。</p>
-<p>再输入<strong>”wq“</strong>，敲回车，就好了</p>
-<p>这时候你弹出硬盘之后，再插入硬盘，会发现桌面上你之间选择的那个硬盘不见了。😱</p>
-<h3 id="Step-4-添加快捷方式"><a href="#Step-4-添加快捷方式" class="headerlink" title="Step 4. 添加快捷方式"></a>Step 4. 添加快捷方式</h3><p>其实硬盘分区还在，就是被Mac隐藏了。</p>
-<p>还是在之前那个黑框框里面，用命令来进行操作。</p>
-<p>这里有两种方式：</p>
-<h4 id="A-只为自己刚刚选的硬盘做快捷方式（Recommend）"><a href="#A-只为自己刚刚选的硬盘做快捷方式（Recommend）" class="headerlink" title="A. 只为自己刚刚选的硬盘做快捷方式（Recommend）"></a>A. 只为自己刚刚选的硬盘做快捷方式（Recommend）</h4><p>输入下面的命令<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s <span class="regexp">/Volumes/</span>Store<span class="regexp">/ ~/</span>Desktop<span class="regexp">/Store</span></span><br></pre></td></tr></table></figure></p>
-<p>这里建议直接复制，然后修改<strong>”Store“</strong>单词为自己的在Step 3中所选的硬盘（分区）的名字，前后两个<strong>“Store”</strong>都要改。</p>
-<p>然后<code>Enter</code>。</p>
-<p>现在可以在桌面上看到自己的硬盘（分区）了。😄</p>
-<h4 id="B-看到Mac所识别的所有硬盘（分区）（Not-Recommend）"><a href="#B-看到Mac所识别的所有硬盘（分区）（Not-Recommend）" class="headerlink" title="B. 看到Mac所识别的所有硬盘（分区）（Not Recommend）"></a>B. 看到Mac所识别的所有硬盘（分区）（Not Recommend）</h4><p>方式与第一种差不多，就是对命令进行微微的修改。</p>
-<p>输入下面的命令<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s <span class="string">/Volumes</span> ~<span class="string">/Desktop/Volumes</span></span><br></pre></td></tr></table></figure></p>
-<p>这里复制完命令之后，可以直接<code>Enter</code></p>
-<p>好了，这些就是我自己试过的一些方法，均亲测有效。希望可以给大家提供一些帮助。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.jianshu.com/p/bb412953bec3" target="_blank" rel="noopener">Mac OS开启原生读取NTFS的功能</a></p>
-
 		  	  
 	</div>
 
 	<div class="article-bottom">
-		<a class="article-readmore" href="/2018/12/16/Mac读写外接硬盘的几个建议/">Continue</a> 	
+		<a class="article-readmore" href="/2018/12/16/Mac读写外接硬盘的几个建议/">阅读更多</a> 	
 	</div>	
     
 </article>     
@@ -205,7 +169,7 @@
 	</div>
 
 	<div class="article-bottom">
-		<a class="article-readmore" href="/2018/12/11/Python3多进程/">Continue</a> 	
+		<a class="article-readmore" href="/2018/12/11/Python3多进程/">阅读更多</a> 	
 	</div>	
     
 </article>     
@@ -248,7 +212,7 @@
 	</div>
 
 	<div class="article-bottom">
-		<a class="article-readmore" href="/2018/12/10/Ubuntu-纸飞机起飞/">Continue</a> 	
+		<a class="article-readmore" href="/2018/12/10/Ubuntu-纸飞机起飞/">阅读更多</a> 	
 	</div>	
     
 </article>     
@@ -291,7 +255,7 @@
 	</div>
 
 	<div class="article-bottom">
-		<a class="article-readmore" href="/2018/12/09/写在前面/">Continue</a> 	
+		<a class="article-readmore" href="/2018/12/09/写在前面/">阅读更多</a> 	
 	</div>	
     
 </article>     
@@ -314,7 +278,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -331,31 +295,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">Home
+            <a class="mobile-menu-link" href="/">首页
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">Archives
+            <a class="mobile-menu-link" href="/archives">归档
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">Tags
+            <a class="mobile-menu-link" href="/tags">标签
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">About
+            <a class="mobile-menu-link" href="/about">关于
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
             
          
       
