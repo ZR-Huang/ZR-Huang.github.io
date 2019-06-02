@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  写在开头 |   Roger </title>
+  <title>  Ubuntu设置pac全局代理 |   Roger </title>
 
  
   
@@ -79,18 +79,18 @@
 	
 <div class="post-header">
 	<p class="post-title">	
-		写在开头
+		Ubuntu设置pac全局代理
 	</p>
 
 	<div class="post-info">	
 		<span class="post-info-entry">
-			Dec 09, 2018
+			Jun 02, 2019
 		</span>
 
 		
 		
 			<i class="iconfont icon-words"></i>
-			<span class="post-info-entry">316
+			<span class="post-info-entry">615
 			</span>
 		
 
@@ -107,15 +107,26 @@
 		
 
 			
-					<p>其实吧，在今年的一月份的时候，我就用Git Pages搭过一个博客。</p>
-<p>可能是出于还不明白自己到底想要通过博客去实现什么？</p>
-<p>在花了近一年的时间，在知乎，简书以及公众号上断断续续地发文，我想我现在已经摸索到了一点自己想要的东西所在的方位。</p>
-<p>在这一年中，我看到过一句话，给我留下非常深刻的印象，大意是：<strong>在实现目标的过程中，不断地去跟别人强调自己在做什么以及自己的进度的人，往往实现不了目标</strong>。</p>
-<p>这一年来自己多多少少也算是走南闯北了，经历了不少的事情。</p>
-<p>昨天给一个在美国的老友说了一声生日祝福，她说：“你看起来老了很多”。</p>
-<p>哈哈哈哈哈，毕竟上年纪了呀。</p>
-<p>嘘～🤫，接下来，就让我们静静等待2019年的来临。</p>
-<p>看看这个博客，会发生神奇的变化吧。</p>
+					<p>本机环境</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Distributor <span class="string">ID:</span>	Ubuntu</span><br><span class="line"><span class="string">Description:</span>	Ubuntu <span class="number">18.04</span><span class="number">.1</span> LTS</span><br><span class="line"><span class="string">Release:</span>	<span class="number">18.04</span></span><br><span class="line"><span class="string">Codename:</span>	bionic</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装genpac</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install</span> genpac</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建目录用于存放相关文件</li>
+</ol>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ssrPAC</span><br><span class="line"><span class="built_in">cd</span> ssrPAC</span><br><span class="line">touch user-rules.txt</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>生成pac文件</li>
+</ol>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac -p <span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--gfwlist-proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--output=</span><span class="string">"autoproxy.pac"</span> <span class="params">--gfwlist-url=</span><span class="string">"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"</span> <span class="params">--user-rule-from=</span><span class="string">"user-rules.txt"</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>设置全局代理<br>打开System setting &gt; Network &gt; Network Proxy<br>将Method改为<strong>Automatic</strong><br>并在Configuration URL填入以下内容：</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file:<span class="regexp">//</span><span class="regexp">/home/</span>roger-hwong<span class="regexp">/software/</span>ssrPAC<span class="regexp">/autoproxy.pac</span></span><br></pre></td></tr></table></figure>
+<p>即“file://” + autoproxy.pac文件的绝对路径</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/hanshileiai/article/details/52624303" target="_blank" rel="noopener">ubuntu基于shadowsocks的PAC全局代理：解决方案</a></p>
   	
 					
 	  </div>     
@@ -209,12 +220,11 @@
 
 
   <div class="post-footer-meta">
-        
-          <i class="iconfont icon-category"></i>       
-          <a class="category-link" href="/categories/about-myself/">about myself</a> 	
-      
         	
 
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/linux/">linux</a> <a class="tag-link" href="/tags/ubuntu/">ubuntu</a>    
         	
   </div>
 
@@ -224,15 +234,15 @@
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
+      <a href="/2019/06/02/Ubuntu的计划任务/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <a class="post-nav-title" href="/2019/06/02/Ubuntu的计划任务/">
+          Ubuntu的计划任务</a>
+      </a>
+  
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2018/12/10/Ubuntu-纸飞机起飞/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <a class="post-nav-title" href="/2018/12/10/Ubuntu-纸飞机起飞/">
-            Ubuntu 纸飞机起飞</a>
-        </a>
     
   </div>
 
@@ -269,7 +279,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#参考"><span class="toc-inner-text">参考</span></a></li></ol>
 			</div>
 		</div>
 	</div>

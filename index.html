@@ -103,6 +103,214 @@
 	
 	<div class="article-header">
 	    
+		<a class="article-title" href="/2019/06/02/Ubuntu设置pac全局代理/">Ubuntu设置pac全局代理</a>  
+	       
+		 
+
+		<div class="article-meta">
+			<time>Jun 02, 2019</time>
+			
+				<span class="iconfont icon-star"></span>
+				            
+						<a class="article-tag" href="/tags/ubuntu/">ubuntu</a>           
+				            
+						<a class="article-tag" href="/tags/linux/">linux</a>           
+				
+			
+
+			<!-- <span id="busuanzi_container_page_pv">
+					Total views:<span id="busuanzi_value_page_pv"></span>
+			</span> -->
+
+		</div>
+	</div>
+
+
+	
+
+    
+	<div class="typo article-excerpt">	
+		 
+			<p>本机环境</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Distributor <span class="string">ID:</span>	Ubuntu</span><br><span class="line"><span class="string">Description:</span>	Ubuntu <span class="number">18.04</span><span class="number">.1</span> LTS</span><br><span class="line"><span class="string">Release:</span>	<span class="number">18.04</span></span><br><span class="line"><span class="string">Codename:</span>	bionic</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装genpac</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install</span> genpac</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建目录用于存放相关文件</li>
+</ol>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ssrPAC</span><br><span class="line"><span class="built_in">cd</span> ssrPAC</span><br><span class="line">touch user-rules.txt</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>生成pac文件</li>
+</ol>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genpac -p <span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--gfwlist-proxy=</span><span class="string">"SOCKS5 127.0.0.1:1080"</span> <span class="params">--output=</span><span class="string">"autoproxy.pac"</span> <span class="params">--gfwlist-url=</span><span class="string">"https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"</span> <span class="params">--user-rule-from=</span><span class="string">"user-rules.txt"</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>设置全局代理<br>打开System setting &gt; Network &gt; Network Proxy<br>将Method改为<strong>Automatic</strong><br>并在Configuration URL填入以下内容：</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file:<span class="regexp">//</span><span class="regexp">/home/</span>roger-hwong<span class="regexp">/software/</span>ssrPAC<span class="regexp">/autoproxy.pac</span></span><br></pre></td></tr></table></figure>
+<p>即“file://” + autoproxy.pac文件的绝对路径</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/hanshileiai/article/details/52624303" target="_blank" rel="noopener">ubuntu基于shadowsocks的PAC全局代理：解决方案</a></p>
+
+		  	  
+	</div>
+
+	<div class="article-bottom">
+		<a class="article-readmore" href="/2019/06/02/Ubuntu设置pac全局代理/">Continue</a> 	
+	</div>	
+    
+</article>     
+     	
+    	  	
+  		
+    			
+
+<article class="article">		
+	
+	<div class="article-header">
+	    
+		<a class="article-title" href="/2019/06/02/Ubuntu的计划任务/">Ubuntu的计划任务</a>  
+	       
+		 
+
+		<div class="article-meta">
+			<time>Jun 02, 2019</time>
+			
+				<span class="iconfont icon-star"></span>
+				            
+						<a class="article-tag" href="/tags/ubuntu/">ubuntu</a>           
+				            
+						<a class="article-tag" href="/tags/linux/">linux</a>           
+				
+			
+
+			<!-- <span id="busuanzi_container_page_pv">
+					Total views:<span id="busuanzi_value_page_pv"></span>
+			</span> -->
+
+		</div>
+	</div>
+
+
+	
+
+    
+	<div class="typo article-excerpt">	
+		 
+			<p>因为最近倒腾着Ubuntu，但是想着每天都要执行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">update</span></span><br><span class="line">sudo apt <span class="keyword">upgrade</span></span><br></pre></td></tr></table></figure>
+<p>来更新自己的软件，就有点烦。而且经常忘记。所以这个时候就发现了Crontab这种好用的软件。（<strong>懒癌患者救星</strong>）</p>
+<hr>
+<h2 id="crontab相关文件的位置"><a href="#crontab相关文件的位置" class="headerlink" title="crontab相关文件的位置"></a>crontab相关文件的位置</h2><ul>
+<li><code>/var/spool/cron/crontabs</code>：存放着每个用户的crontab任务，各个文件以用户名命名。</li>
+<li><code>/etc</code>：存放着不同重复时间的计划任务的目录（如<code>cron.daily</code>,<code>cron.weekly</code>，每个目录下存放要执行的crontab文件或者脚本。</li>
+</ul>
+<h2 id="crontab基本命令"><a href="#crontab基本命令" class="headerlink" title="crontab基本命令"></a>crontab基本命令</h2><ul>
+<li><code>crontab -e</code>：编辑当前用户的crontab任务，当该用户不存在crontab任务时新建一个文件</li>
+<li><code>crontab -l</code>：列出当前用户的crontab任务。</li>
+<li><code>crontab -r</code>：删除当前用户的crontab任务文件。</li>
+<li><code>crontab -u &lt;user&gt;</code>：指定某一用户的crontab任务文件。</li>
+</ul>
+<h2 id="新建自己的计划任务"><a href="#新建自己的计划任务" class="headerlink" title="新建自己的计划任务"></a>新建自己的计划任务</h2><p>我想着怎么新建一个自动执行<code>sudo apt update</code>的任务</p>
+<p>开始踩坑填坑之路。。</p>
+<p>第一步，新建自己的任务文件。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">crontab -e</span></span><br></pre></td></tr></table></figure>
+<p>一开始会让你选择编辑器，我选了nano，因为它提示最简单:)</p>
+<p>然后看着这个文件，有点头大，然后去找谷歌问了一下。</p>
+<p>一条具体任务的格式是这样的：</p>
+<p><strong>分钟 小时 日期 月份 周几 命令</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>描述</th>
+<th>允许的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分钟</td>
+<td>一小时内的第几分</td>
+<td>0-59</td>
+</tr>
+<tr>
+<td>小时</td>
+<td>一天里的第几个小时</td>
+<td>0-23</td>
+</tr>
+<tr>
+<td>日期</td>
+<td>一个月的第几天</td>
+<td>1-31</td>
+</tr>
+<tr>
+<td>月份</td>
+<td>一年的第几个月</td>
+<td>1-12</td>
+</tr>
+<tr>
+<td>周几</td>
+<td>一周的第几天</td>
+<td>0-7（0和7都是星期天）</td>
+</tr>
+<tr>
+<td>命令</td>
+<td>命令</td>
+<td>任何可以被执行的命令</td>
+</tr>
+</tbody>
+</table>
+<p>举一个例子：我想在每天早上10点钟的和晚上10点钟的时候执行<code>update</code>和<code>upgrade</code>命令</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">10</span>,<span class="number">22</span> * * * sudo apt update</span><br><span class="line"><span class="symbol">1 </span><span class="number">10</span>,<span class="number">22</span> * * * sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<p>其中每个字段用<strong>空格</strong>隔开，然后为了两个命令的先后顺序，一个设置了0分的时候，一个设置了1分的时候。</p>
+<p>用<strong>逗号</strong>隔开的时间都会执行该任务，也就是10点和22点的时候，任务都会执行。</p>
+<p>*表示每天或者每小时，每个月都会执行</p>
+<p>现在来查看我的计划任务创建了没，用命令<code>crontab -l</code></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">▶ crontab -l</span><br><span class="line"><span class="meta"># Edit this file to introduce tasks to be run by cron.</span></span><br><span class="line"><span class="meta"># </span></span><br><span class="line"><span class="meta"># Each task to run has to be defined through a single line</span></span><br><span class="line"><span class="meta"># indicating with different fields when the task will be run</span></span><br><span class="line"><span class="meta"># and what command to run for the task</span></span><br><span class="line"><span class="meta"># </span></span><br><span class="line"><span class="meta"># To define the time you can provide concrete values for</span></span><br><span class="line"><span class="meta"># minute (m), hour (h), day of month (dom), month (mon),</span></span><br><span class="line"><span class="meta"># and day of week (dow) or use '*' in these fields (for 'any').# </span></span><br><span class="line"><span class="meta"># Notice that tasks will be started based on the cron's system</span></span><br><span class="line"><span class="meta"># daemon's notion of time and timezones.</span></span><br><span class="line"><span class="meta"># </span></span><br><span class="line"><span class="meta"># Output of the crontab jobs (including errors) is sent through</span></span><br><span class="line"><span class="meta"># email to the user the crontab file belongs to (unless redirected).</span></span><br><span class="line"><span class="meta"># </span></span><br><span class="line"><span class="meta"># For example, you can run a backup of all your user accounts</span></span><br><span class="line"><span class="meta"># at 5 a.m every week with:</span></span><br><span class="line"><span class="meta"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span></span><br><span class="line"><span class="meta"># </span></span><br><span class="line"><span class="meta"># For more information see the manual pages of crontab(5) and cron(8)</span></span><br><span class="line"><span class="meta"># </span></span><br><span class="line"><span class="meta"># m h  dom mon dow   command</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> <span class="number">10</span>,<span class="number">22</span> * * * sudo apt update</span><br><span class="line"><span class="number">1</span> <span class="number">10</span>,<span class="number">22</span> * * * sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<p>说明已经创建成功了，但是在实际测试后，通过查看日志的方式发现这两条任务。。。</p>
+<h3 id="写的不对"><a href="#写的不对" class="headerlink" title="写的不对"></a>写的不对</h3><h3 id="写的不对-1"><a href="#写的不对-1" class="headerlink" title="写的不对"></a>写的不对</h3><h3 id="写的不对-2"><a href="#写的不对-2" class="headerlink" title="写的不对"></a>写的不对</h3><p><strong>因为在crontab里面直接执行sudo命令时无效的。</strong></p>
+<h3 id="下面是强烈推荐："><a href="#下面是强烈推荐：" class="headerlink" title="下面是强烈推荐："></a>下面是强烈推荐：</h3><p>想要在crontab里面执行root权限的命令，建议在创建任务时就使用root权限，如：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo crontab -e</span></span><br></pre></td></tr></table></figure>
+<p>将其中的任务改成：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">10</span>,<span class="number">22</span> * * * apt update</span><br><span class="line"><span class="symbol">1 </span><span class="number">10</span>,<span class="number">22</span> * * * apt upgrade</span><br></pre></td></tr></table></figure>
+<p>这是安全保险的一种方法。</p>
+<h3 id="不推荐的做法："><a href="#不推荐的做法：" class="headerlink" title="不推荐的做法："></a>不推荐的做法：</h3><p>在crontab里面执行sudo命令。</p>
+<p>注释<code>/etc/sudoers</code>的<code>Defaults requiretty</code>这一行。</p>
+<p>因为sudo默认需要tty终端，而crontab里的命令实际是以无tty形式执行的。</p>
+<p>这么做，你的密码会以明文的形式存在在文件中，这将存在安全隐患。</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@hourly</span> echo “password” |<span class="string"> sudo -S apt update</span></span><br></pre></td></tr></table></figure>
+<p>这里再提一下，如何查看日志</p>
+<p>可以直接</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>cron status</span><br></pre></td></tr></table></figure>
+<p>查看最近的几条日志信息。</p>
+<p>另一种方式，查看<code>/var/log/syslog</code>文件，这里面包含了系统里面的（应该是所有的）日志吧（还没研究过）</p>
+<p>如果想只看crontab的日志，可以用一下命令</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep CRON /<span class="built_in">var</span>/<span class="built_in">log</span>/syslog</span><br></pre></td></tr></table></figure>
+<h2 id="最后一定要记得"><a href="#最后一定要记得" class="headerlink" title="最后一定要记得"></a>最后一定要记得</h2><h2 id="一定要记得"><a href="#一定要记得" class="headerlink" title="一定要记得"></a>一定要记得</h2><h2 id="记得"><a href="#记得" class="headerlink" title="记得"></a>记得</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>cron start</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/richerg85/article/details/23442411" target="_blank" rel="noopener">Linux 计划任务之crontab</a></p>
+<p><a href="https://blog.csdn.net/kai404/article/details/52169122" target="_blank" rel="noopener">Linux crontab下关于使用date命令和sudo命令的坑</a></p>
+<p><a href="https://www.jianshu.com/p/838db0269fd0" target="_blank" rel="noopener">Linux之crontab定时任务</a></p>
+<p><a href="http://blog.51cto.com/461205160/1736383" target="_blank" rel="noopener">如何查看crontab的日志记录</a></p>
+<p><a href="https://askubuntu.com/questions/173924/how-to-run-a-cron-job-using-the-sudo-command" target="_blank" rel="noopener">How to run a cron job using the sudo command</a></p>
+<p><a href="https://askubuntu.com/questions/56683/where-is-the-cron-crontab-log" target="_blank" rel="noopener">Where is the cron / crontab log?</a></p>
+
+		  	  
+	</div>
+
+	<div class="article-bottom">
+		<a class="article-readmore" href="/2019/06/02/Ubuntu的计划任务/">Continue</a> 	
+	</div>	
+    
+</article>     
+     	
+    	  	
+  		
+    			
+
+<article class="article">		
+	
+	<div class="article-header">
+	    
 		<a class="article-title" href="/2019/06/02/v2ray搭建与基础配置/">v2ray搭建与基础配置</a>  
 	       
 		 
@@ -401,9 +609,9 @@
 			
 				<span class="iconfont icon-star"></span>
 				            
-						<a class="article-tag" href="/tags/ssr/">ssr</a>           
-				            
 						<a class="article-tag" href="/tags/linux/">linux</a>           
+				            
+						<a class="article-tag" href="/tags/ssr/">ssr</a>           
 				
 			
 
@@ -587,7 +795,7 @@ ga('send', 'pageview');
 
 		<!-- <div class="theme-info"> -->
 			<!-- <div class="powered-by"></div> -->
-		<span class="post-count"> | Total 6.7k words</span>
+		<span class="post-count"> | Total 7.9k words</span>
 		<!-- </div> -->
 
 		<br>
