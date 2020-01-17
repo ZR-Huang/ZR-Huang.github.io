@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  V2ray搭建与基础配置 |   Roger </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+          
+            <a class="header-menu-link" id="header-menu-home" href="/">
+              <i class="iconfont icon-home">  
+            </i></a>     
+          
+              
+          
+            <a class="header-menu-link" id="header-menu-archives" href="/archives">
+              <i class="iconfont icon-archives">  
+            </i></a>     
+          
+              
+          
+            <a class="header-menu-link" id="header-menu-tags" href="/tags">
+              <i class="iconfont icon-tags">  
+            </i></a>     
+          
+              
+          
+            <a class="header-menu-link" id="header-menu-about" href="/about">
+              <i class="iconfont icon-about">  
+            </i></a>     
+          
+              
+          
+              <a class="header-menu-link" id="header-menu-search">
+                <i class="iconfont icon-search">  
+              </i></a>
+          
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+   
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<p class="post-title">	
+		v2ray搭建与基础配置
+	</p>
+
+	<div class="post-info">	
+		<span class="post-info-entry">
+			Jun 02, 2019
+		</span>
+
+		
+		
+			<i class="iconfont icon-words"></i>
+			<span class="post-info-entry">1884
+			</span>
+		
+
+		<span id="busuanzi_container_page_pv">
+				Total views:<span id="busuanzi_value_page_pv"></span>
+		</span>
+	</div>
+</div> 
+	
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p>以下都是我自己实验一天的过程，因为每个人的计算机环境不同，情况不同。不保证全都能正常完成配置，如遇到新的错误或者问题，请各位同学自行查询资料，发扬自主积极学习的精神，不做伸手党。</p>
+<p>有什么问题可以找我的老板Google(如果有条件)，Baidu，还有简书，知乎等。</p>
+<a id="more"></a>
+<h3 id="1-下载安装官方的一键脚本"><a href="#1-下载安装官方的一键脚本" class="headerlink" title="1. 下载安装官方的一键脚本"></a>1. 下载安装官方的一键脚本</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//install.direct/<span class="keyword">go</span>.<span class="keyword">sh</span></span><br><span class="line">sudo bash <span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2. 修改配置文件"></a>2. 修改配置文件</h3><p>这里提供两个配置文件的模板：<a href="https://github.com/ZR-Huang/v2ray-controller/tree/master/template_config?1535353696219" target="_blank" rel="noopener">下载地址</a></p>
+<h4 id="a-上传服务器配置文件"><a href="#a-上传服务器配置文件" class="headerlink" title="a.上传服务器配置文件"></a>a.上传服务器配置文件</h4><p>先将v2ray自带的配置文件做个备份</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/v2ray/config<span class="selector-class">.json</span> /etc/v2ray/config<span class="selector-class">.json</span><span class="selector-class">.backup</span></span><br></pre></td></tr></table></figure>
+<p>然后用任何方式<code>xftp</code>或者<code>scp</code>，把刚刚下载的<code>server_config.json</code>上传到<code>/etc/v2ray/</code>并重命名为<code>config.json</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv <span class="regexp">/etc/</span>v2ray<span class="regexp">/server_config.json /</span>etc<span class="regexp">/v2ray/</span>config.json</span><br></pre></td></tr></table></figure>
+<h4 id="b-修改服务器配置文件"><a href="#b-修改服务器配置文件" class="headerlink" title="b.修改服务器配置文件"></a>b.修改服务器配置文件</h4><p>主要修改服务器配置文件中的<code>port</code>,<code>uuid</code></p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/v2ray/<span class="built_in">config</span>.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"inbound"</span>: &#123;</span><br><span class="line">    <span class="string">"port"</span>: <span class="number">11111</span>,  // 该服务运行的端口</span><br><span class="line">    <span class="string">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">    <span class="string">"settings"</span>: &#123;</span><br><span class="line">      <span class="string">"clients"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"id"</span>: <span class="string">"UUID"</span>,  // 你本人的id，其实就是加解密用的秘钥</span><br><span class="line">          <span class="string">"level"</span>: <span class="number">1</span>,</span><br><span class="line">          <span class="string">"alterId"</span>: <span class="number">100</span>,</span><br><span class="line">          <span class="string">"security"</span>: <span class="string">"aes-128-cfb"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>UUID可以在这个<a href="https://www.uuidgenerator.net/" target="_blank" rel="noopener">网站</a>生成<br>将里面UUID改成自己的。端口看自己心情设置。</p>
+<h3 id="3-客户端配置"><a href="#3-客户端配置" class="headerlink" title="3. 客户端配置"></a>3. 客户端配置</h3><h4 id="a-Linux"><a href="#a-Linux" class="headerlink" title="a. Linux"></a>a. Linux</h4><p>先下载<code>v2ray-core</code> (<a href="https://github.com/v2ray/v2ray-core/releases" target="_blank" rel="noopener">下载地址</a>)，下载自己对应的版本，（我用Ubuntu18.04，下的<code>v2ray-linux-64.zip</code>)</p>
+<p>压缩包解压后，同样也是先将默认的配置文件进行备份。(以下操作均在解压后的v2ray的那个目录下执行）</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv config<span class="selector-class">.json</span> config<span class="selector-class">.json</span><span class="selector-class">.backup</span></span><br></pre></td></tr></table></figure>
+<p>同样也是将之前我提供的客户端配置文件(<code>client_config.json</code>）下载后，放在这个目录下，并重命名为<code>config.json</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mv</span> <span class="selector-tag">client_config</span><span class="selector-class">.json</span> <span class="selector-tag">config</span><span class="selector-class">.json</span></span><br></pre></td></tr></table></figure>
+<p>接下来修改对应的配置</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"outbound"</span>: &#123;</span><br><span class="line">      <span class="string">"protocol"</span>: <span class="string">"vmess"</span>,</span><br><span class="line">      <span class="string">"settings"</span>: &#123;</span><br><span class="line">        <span class="string">"vnext"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">"address"</span>: <span class="string">"your ip or domain"</span>, // 修改为你的服务器ip或者域名</span><br><span class="line">            <span class="string">"port"</span>: <span class="number">12345</span>, // 修改为你之前服务器设置的端口</span><br><span class="line">            <span class="string">"users"</span>: [</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="string">"id"</span>: <span class="string">"UUID"</span>,  // 与你服务器上的id保持一致</span><br><span class="line">                <span class="string">"alterId"</span>: <span class="number">100</span>,</span><br><span class="line">                <span class="string">"security"</span>: <span class="string">"aes-128-cfb"</span></span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>后台运行<code>v2ray</code></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="string">./v2ray</span> <span class="params">--config=</span><span class="string">./config.json</span> &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="b-Windows"><a href="#b-Windows" class="headerlink" title="b. Windows"></a>b. Windows</h4><p>说实话，还没实验，因为平时不用Windows。不过附上官方推荐的Windows的客户端<a href="https://www.v2ray.com/ui_client/windows.html" target="_blank" rel="noopener">列表</a></p>
+<p>可以直接下载<a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">V2RayN</a>的可执行文件，因为看大家好像都用这个。下载完之后好像免安装的，配置可能也就是改个<code>ip</code>，<code>port</code>，<code>uuid</code>，<code>alterid</code>之类的，都和服务器保持一致就可以了。</p>
+<h4 id="c-Mac-OS-X"><a href="#c-Mac-OS-X" class="headerlink" title="c. Mac OS X"></a>c. Mac OS X</h4><h2 id="对不起，买不起。"><a href="#对不起，买不起。" class="headerlink" title="对不起，买不起。"></a>对不起，买不起。</h2><h4 id="d-FINALLY，配置浏览器或者系统全局代理"><a href="#d-FINALLY，配置浏览器或者系统全局代理" class="headerlink" title="d. FINALLY，配置浏览器或者系统全局代理"></a>d. FINALLY，配置浏览器或者系统全局代理</h4><p>（<strong>这部分不多阐述了，网络上较多教程</strong>)<br>在浏览器也需要个扩展插件配合。</p>
+<ol>
+<li>Chrome的扩展<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">Omega</a>（<strong>下这个扩展需要翻墙，建议可以去网上搜一下安装包</strong>)。这里有篇教程简单提了一下Switchyomega的使用（<a href="https://www.hinwen.com/31890.html" target="_blank" rel="noopener">小众科学上网-V2Ray搭建及使用教程</a>）在文章<strong>较后</strong>部分需要翻一翻。</li>
+<li>Firefox的<a href="https://addons.mozilla.org/zh-CN/firefox/addon/switchyomega" target="_blank" rel="noopener">Proxy SwitchyOmega </a>。</li>
+</ol>
+<p><a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="noopener">GFWList</a> 是一个有用的东西，可以帮助代理仅仅被屏蔽的内容，我们可以结合<a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">Omega</a> 和 <a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" target="_blank" rel="noopener">GFWList</a> 来配置自动代理，甚至可以使用 <a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">Omega</a> 生成 PAC 文件来设定系统级别的自动代理。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://toutyrater.github.io/" target="_blank" rel="noopener">V2ray白话文教程</a><br><a href="https://www.v2ray.com/" target="_blank" rel="noopener">V2ray官方手册</a><br><a href="https://www.hinwen.com/31890.html" target="_blank" rel="noopener">小众科学上网-V2Ray搭建及使用教程</a><br><a href="https://yuan.ga/v2ray-complete-tutorial/" target="_blank" rel="noopener">V2Ray完全使用教程</a><br><a href="https://www.ivyseeds.cf/v2ray/" target="_blank" rel="noopener">从零开始部署FanWa11梯子指南（六）Fanwa11新神器，V2Ray初探</a></p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+    
+      <span class="post-footer-item">
+        
+
+
+<span class="donate-btn">
+	<span class="iconfont icon-donate"></span>
+</span>
+
+<div id="donate-box" class="sildeUpMin">
+
+	<span class="donate-cancel iconfont icon-cancel"></span>
+
+	<div class="donate-img-box">
+		<img id="donate-qr-wechat" class="noLazyLoad donate-img" src="/images/donate1.png" alt="No Donate Image!">	
+		<img id="donate-qr-alipay" class="noLazyLoad donate-img" src="/images/donate2.png" alt="No Donate Image!">	
+	</div>
+
+	<span class="donate-word">请我喝杯咖啡吧</span>
+
+	<div class="donate-list">
+		<span class="iconfont icon-donate-wechat"></span>
+		<span class="iconfont icon-donate-alipay"></span>
+	</div>
+
+</div>
+ 
+      </span>        
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-qq 
+		-mob-share-qq 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-douban 
+		-mob-share-douban 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-google 
+		-mob-share-google 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        
+          <i class="iconfont icon-category"></i>       
+          <a class="category-link" href="/categories/breakwall/">breakwall</a> 	
+      
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/linux/">linux</a> <a class="tag-link" href="/tags/v2ray/">v2ray</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/04/24/warftp漏洞利用实验/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <a class="post-nav-title" href="/2019/04/24/warftp漏洞利用实验/">
+          warftp漏洞利用实验</a>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/06/02/Ubuntu的计划任务/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <a class="post-nav-title" href="/2019/06/02/Ubuntu的计划任务/">
+            Ubuntu的计划任务</a>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <div id="disqus_thread"></div>
+    <script>
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://'+'Roger'+'.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());    
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+
+    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+
+
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#1-下载安装官方的一键脚本"><span class="toc-inner-text">1. 下载安装官方的一键脚本</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#2-修改配置文件"><span class="toc-inner-text">2. 修改配置文件</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#a-上传服务器配置文件"><span class="toc-inner-text">a.上传服务器配置文件</span></a></li><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#b-修改服务器配置文件"><span class="toc-inner-text">b.修改服务器配置文件</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#3-客户端配置"><span class="toc-inner-text">3. 客户端配置</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#a-Linux"><span class="toc-inner-text">a. Linux</span></a></li><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#b-Windows"><span class="toc-inner-text">b. Windows</span></a></li><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#c-Mac-OS-X"><span class="toc-inner-text">c. Mac OS X</span></a></li></ol></li></ol><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#对不起，买不起。"><span class="toc-inner-text">对不起，买不起。</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#d-FINALLY，配置浏览器或者系统全局代理"><span class="toc-inner-text">d. FINALLY，配置浏览器或者系统全局代理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#参考"><span class="toc-inner-text">参考</span></a></li>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">   
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>        
+    
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){
+	i['GoogleAnalyticsObject']=r;
+	i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112479134-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+     
+    
+
+
+<footer id="footer">	    
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2018-
+		
+		2020		
+	
+		Roger
+
+		<!-- <div class="powered-by"> -->
+		<!-- <i class="fa fa-user-md"></i> -->
+		<span id="busuanzi_container_site_uv">
+			| Total visitors:<span id="busuanzi_value_site_uv"></span>
+		</span>
+		<!-- </div> -->
+
+		<!-- <div class="theme-info"> -->
+			<!-- <div class="powered-by"></div> -->
+		<span class="post-count"> | Total 14.2k words</span>
+		<!-- </div> -->
+
+		<br>
+
+		Modified from Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a> by Roger
+		</div>
+					
+	 
+</footer>
+
+   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>
