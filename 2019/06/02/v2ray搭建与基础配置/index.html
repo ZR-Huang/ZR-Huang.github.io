@@ -272,26 +272,20 @@
  
 	
 
-
-    <div id="comment">   
-    </div>
-
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-
-    <script src="//unpkg.com/valine@v1.1.8-beta/dist/Valine.min.js"></script>
-
+    <div id="disqus_thread"></div>
     <script>
-        new Valine({
-        el: '#comment',
-        notify:false, 
-        verify:false, 
-        app_id: '0NVqCXxAFcHkrKuXYDlHKQ2M-gzGzoHsz',
-        app_key: 'pszzFrjj2NHh1sIISQMfEE9n',  
-        path:window.location.pathname, 
-        avatar:'mm' ,
-        guest_info:['nick','mail']
-        });
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://'+'Roger'+'.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());    
+    (d.head || d.body).appendChild(s);
+    })();
     </script>
+
+    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+
+
 	
 </article>
 
