@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  写在开头 |   大黄 </title>
+  <title>  [DVWA]命令注入 |   大黄 </title>
 
  
   
@@ -79,18 +79,18 @@
 	
 <div class="post-header">
 	<p class="post-title">	
-		写在开头
+		[DVWA]命令注入
 	</p>
 
 	<div class="post-info">	
 		<span class="post-info-entry">
-			Dec 09, 2018
+			Sep 17, 2020
 		</span>
 
 		
 		
 			<i class="iconfont icon-words"></i>
-			<span class="post-info-entry">316
+			<span class="post-info-entry">303
 			</span>
 		
 
@@ -107,16 +107,14 @@
 		
 
 			
-					<p>其实吧，在今年的一月份的时候，我就用Git Pages搭过一个博客。</p>
-<p>可能是出于还不明白自己到底想要通过博客去实现什么？</p>
-<p>在花了近一年的时间，在知乎，简书以及公众号上断断续续地发文，我想我现在已经摸索到了一点自己想要的东西所在的方位。</p>
-<p>在这一年中，我看到过一句话，给我留下非常深刻的印象，大意是：<strong>在实现目标的过程中，不断地去跟别人强调自己在做什么以及自己的进度的人，往往实现不了目标</strong>。</p>
-<p>这一年来自己多多少少也算是走南闯北了，经历了不少的事情。</p>
-<p>昨天给一个在美国的老友说了一声生日祝福，她说：“你看起来老了很多”。</p>
-<p>哈哈哈哈哈，毕竟上年纪了呀。</p>
-<p>嘘～🤫，接下来，就让我们静静等待2019年的来临。</p>
-<p>看看这个博客，会发生神奇的变化吧。</p>
-  	
+					<p>DVWA系列主要是我在找工作记录当中复习Web安全的基础和练习的一个框架。因为在秋招面试过程当中，多次被面试官吐槽说安全技能基础薄弱。所以，为了能抓紧秋招上岸，我还是好好练练吧。</p>
+<p>今天是“命令注入部分”。</p>
+<a id="more"></a>
+<h1 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h1><p>命令注入的目的是为了让系统执行攻击者构造的恶意命令，通常这些恶意命令会以和系统应用相同的权限被执行。</p>
+<p>命令注入发生在许多情况下，通常是缺少对输入数据的验证，但是这些数据又能被攻击者所操控（表单、cookies、HTTP headers等）</p>
+<p>这一攻击也被叫做“Remote Command Execution (RCE)”</p>
+<p><em>未完待续……</em></p>
+<h1 id="Low-level"><a href="#Low-level" class="headerlink" title="Low-level"></a>Low-level</h1><h1 id="Median-level"><a href="#Median-level" class="headerlink" title="Median-level"></a>Median-level</h1><h1 id="High-Level"><a href="#High-Level" class="headerlink" title="High-Level"></a>High-Level</h1>  	
 					
 	  </div>     
 	  
@@ -213,7 +211,7 @@
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/随记/">随记</a>    
+            <a class="tag-link" href="/tags/Web安全/">Web安全</a>    
         	
   </div>
 
@@ -223,15 +221,15 @@
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
+      <a href="/2020/02/06/理解平凡女性的生活/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <a class="post-nav-title" href="/2020/02/06/理解平凡女性的生活/">
+          理解平凡女性的小部分生活</a>
+      </a>
+  
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2018/12/10/Ubuntu-纸飞机起飞/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <a class="post-nav-title" href="/2018/12/10/Ubuntu-纸飞机起飞/">
-            Ubuntu 纸飞机起飞</a>
-        </a>
     
   </div>
 
@@ -262,7 +260,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#漏洞原理"><span class="toc-inner-text">漏洞原理</span></a></li><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#Low-level"><span class="toc-inner-text">Low-level</span></a></li><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#Median-level"><span class="toc-inner-text">Median-level</span></a></li><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#High-Level"><span class="toc-inner-text">High-Level</span></a></li></ol>
 			</div>
 		</div>
 	</div>
