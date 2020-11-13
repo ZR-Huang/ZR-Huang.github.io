@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  [DVWA]命令注入 |   大黄 </title>
+  <title>  一场名为「投资」的博弈 |   大黄 </title>
 
  
   
@@ -79,18 +79,18 @@
 	
 <div class="post-header">
 	<p class="post-title">	
-		[DVWA]命令注入
+		一场名为「投资」的博弈
 	</p>
 
 	<div class="post-info">	
 		<span class="post-info-entry">
-			Sep 17, 2020
+			Nov 13, 2020
 		</span>
 
 		
 		
 			<i class="iconfont icon-words"></i>
-			<span class="post-info-entry">303
+			<span class="post-info-entry">1860
 			</span>
 		
 
@@ -107,14 +107,25 @@
 		
 
 			
-					<p>DVWA系列主要是我在找工作记录当中复习Web安全的基础和练习的一个框架。因为在秋招面试过程当中，多次被面试官吐槽说安全技能基础薄弱。所以，为了能抓紧秋招上岸，我还是好好练练吧。</p>
-<p>今天是“命令注入部分”。</p>
+					<p>《哈佛投资课》，刘长江编著。</p>
+<p>推荐指数：🌟🌟</p>
 <a id="more"></a>
-<h1 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h1><p>命令注入的目的是为了让系统执行攻击者构造的恶意命令，通常这些恶意命令会以和系统应用相同的权限被执行。</p>
-<p>命令注入发生在许多情况下，通常是缺少对输入数据的验证，但是这些数据又能被攻击者所操控（表单、cookies、HTTP headers等）</p>
-<p>这一攻击也被叫做“Remote Command Execution (RCE)”</p>
-<p><em>未完待续……</em></p>
-<h1 id="Low-level"><a href="#Low-level" class="headerlink" title="Low-level"></a>Low-level</h1><h1 id="Median-level"><a href="#Median-level" class="headerlink" title="Median-level"></a>Median-level</h1><h1 id="High-Level"><a href="#High-Level" class="headerlink" title="High-Level"></a>High-Level</h1>  	
+<p>这本书是我去年在实验室里摸鱼时，无意在支付宝中发现可以用积分兑换一些畅销书（不包邮）。其实放了很久了，去年的年底收到后就一直没有去看过，直到今年秋招结束才拿起来慢慢地啃。</p>
+<p>这本书不厚，只有240多页，但是对于我这种门外汉来说，看起来着实有点费劲儿。我大概用了一个半月的空闲时间看完了这本书。这时候，想到以前看到过一句话，大意是”阅读和理解的速度是基于你记忆中已有的知识所联结的网络，已有的知识基础和网络体系越完善，阅读和理解的速度越快“。突然反应过来，原来Bill Gates每年读那么多本书（当然绝大多数不是小说类），这是拥有多么广泛的不同的领域的基础啊！</p>
+<p>为什么这本书推荐指数只有三颗星呢？</p>
+<p>主要是三个理由：</p>
+<ul>
+<li>书中缺乏详细的名词和知识点的解释，看起来有点晦涩难懂。</li>
+<li>书中涉及的知识面太广，几乎包含了所有主流金融市场和商品（股票、基金、外汇、银行储蓄、保险、债券等等）。</li>
+<li>行文不太流畅，对外行人不太友好（当然可能也是因为缺乏基础知识导致的理解困难）。</li>
+</ul>
+<p>说回重点，我自己对于投资的关注，最早是在大一。那时候，跟我爸借了5000块钱炒股票，可能是赶上牛市，期间最高的收益有2000块。可是，初入股市，不交学费是不可能的。明明在取得这么高的收益率的时候，我依然贪婪地持有着手中的股票，期望它能获得更高的收益。显然，很快绿了几天后，我收益就全没了。我依然跟一个赌徒一样，疯狂的增持买入（用自己的生活费），最后是不出意外地输光了。至此之后，我就再也没有买过股票了。这过程中，每天紧盯着大盘，心情也跟着价格起起落落，情绪整天在坐过山车一样，控制不了自己理智的人，在金融市场上只能是做一个炮灰。</p>
+<p>投资，是一场博弈，也是一场战争。它需要你有一定的专业知识（经济、金融等），甚至可能还需要心理学的知识辅助你进行博弈决策。这本书，对于我来说的帮助或许只有让我<strong>意识到建立一个长期有效的适合自己的投资计划和组合的重要性</strong>。之前在股市中的交易，完全是通过看消息新闻以及价格走势来确定交易行为，现在回想起来，消息新闻具有一定的滞后性，在我知道消息的时刻，企业内部和机构他们早已经获得消息并制定了相应的策略，我只能默默做个韭菜。</p>
+<p><strong>“普通人，没有选择进入金融市场，也许永远不知道个体的脆弱、盲从、缺乏自制、疏忽大意。“</strong>在参与股票市场和基金市场后，我的确多次因为自己的贪婪而导致收益大幅缩水，甚至严重亏损。”不能把所有鸡蛋都放在一个篮子里。”这话谁都听过，但是如何去建立自己的投资组合的确是需要一定的试探成本。我也庆幸，我的这个成本比起大多数人来说，应该算是比较低的。我根据自己所剩余的现金资产，按照自己能接受的风险进行配置，比如一部分的股票，一部分的基金，一部分的定期和足够的生活费。但是在股票和基金的选择方面，我还没有自己的看法和观点。我先从自己的熟悉专业领域出发去选择了两只网络安全公司的股票，在判断他是否是在一个比较低估的价格，再进行交易。当然，后续根据价格的变化进行一点的抄底增持等操作，但是会注意到操作的频率，过于频繁的操作容易让我陷入一定困境。让自己的投资观念和心理状态进入一个长期投资的状态，相当于将股市作为一个“银行”一点点地去买入自己所看好的公司的股票。<strong>不去过分地关注一时的价格波动，更应该去关注公司长期的盈利能力和发展前景。</strong>这也是巴菲特所提倡的关注于公司的基本面，有关于基本面分析，我尚且没有更深入的理解，以后会再找机会学习。虽然，我现在依然还没盈利，但是这种转变帮助我减少了亏损。</p>
+<p>如何选择和建立适合自己的投资计划？对于我来说，投资应当是我在空闲时间关注和学习的东西，我的目标是用小部分的时间去获取能保障我未来生活的收益。因此，我更应该去关注适合长期投资的项目，不需要高收益，但一定是使得投资组合的总体风险较低的。短期投资，需要实时关注市场的变化，短期投资者更擅长运用图表分析技术，结合频繁交易来获得短期的利润。这需要投入比较大量的时间和精力。当我们本身不是专业的金融行业从业者时，短期投资往往很难使我们持续获利。</p>
+<p>选择再次踏入金融市场，不仅是为了获利，也是为了能够在金融市场中去纠正自身原有存在的缺点，比如贪婪和缺乏自制力。“<strong>不管怎么说，市场是我们所不能影响的，所以我们只能适应市场的走势和特点。由于交易行为受到交易态度的影响，而交易态度又受到交易观念的影响，所以交易行为能不能适应市场，进而产生高水平的交易绩效最终取决于交易观念</strong>”。</p>
+<p>希望自己能在这场博弈中，能有所成长。</p>
+  	
 					
 	  </div>     
 	  
@@ -211,7 +222,7 @@
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/Web安全/">Web安全</a>    
+            <a class="tag-link" href="/tags/读书/">读书</a>    
         	
   </div>
 
@@ -221,22 +232,15 @@
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
-      <a href="/2020/02/06/理解平凡女性的生活/" id="post-nav-older" class="post-nav-link-wrap">
+      <a href="/2020/10/01/2020纪实/" id="post-nav-older" class="post-nav-link-wrap">
         <strong class="post-nav-caption">older</strong>
         
-          <a class="post-nav-title" href="/2020/02/06/理解平凡女性的生活/">
-          理解平凡女性的小部分生活</a>
+          <a class="post-nav-title" href="/2020/10/01/2020纪实/">
+          2020纪实</a>
       </a>
   
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2020/10/01/2020纪实/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <a class="post-nav-title" href="/2020/10/01/2020纪实/">
-            2020纪实</a>
-        </a>
     
   </div>
 
@@ -267,7 +271,7 @@
 				CONTENT
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#漏洞原理"><span class="toc-inner-text">漏洞原理</span></a></li><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#Low-level"><span class="toc-inner-text">Low-level</span></a></li><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#Median-level"><span class="toc-inner-text">Median-level</span></a></li><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#High-Level"><span class="toc-inner-text">High-Level</span></a></li></ol>
+				
 			</div>
 		</div>
 	</div>
