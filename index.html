@@ -103,6 +103,68 @@
 	
 	<div class="article-header">
 	    
+		<a class="article-title" href="/2020/12/20/Windows激活方法/">Windows激活方法</a>  
+	       
+		 
+
+		<div class="article-meta">
+			<time>Dec 20, 2020</time>
+			
+				<span class="iconfont icon-star"></span>
+				            
+						<a class="article-tag" href="/tags/Windows/">Windows</a>           
+				
+			
+
+			<!-- <span id="busuanzi_container_page_pv">
+					Total views:<span id="busuanzi_value_page_pv"></span>
+			</span> -->
+
+		</div>
+	</div>
+
+
+	
+
+    
+	<div class="typo article-excerpt">	
+		 
+			<a id="more"></a>
+<p>作为一个安全专业的，在使用破解版的Windows系统或者使用网络上现有的一些破解工具时总是不太放心。但是苦于没钱买正版，就只能使用一种相对的比较靠谱一点的激活方式。</p>
+<h3 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h3><p>Win7的话，我曾经找到过一个可以用的激活码，不知道现在还能不能用。</p>
+<blockquote>
+<p>RHTBY-VWY6D-QJRJ9-JGQ3X-Q2289</p>
+</blockquote>
+<h3 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h3><p>Win10与之前的与之前的windows版本一样，有<strong>家庭版</strong>、<strong>专业版</strong>、<strong>企业版</strong>等各个版本。Win10的激活方式也有<strong>Retail零售版激活</strong>、<strong>OEM版激活</strong>、<strong>VOL版激活</strong>（包括KMS激活等方式）等方式。其中OEM是根据主板信息自动联网激活，属于永久激活的，而KMS激活是180天自动循环，属于未购买win10的用户用的比较多的一种激活方式，许多激活软件就是依据KMS激活的原理，如KMSpico,小马激活等。</p>
+<p>我这里使用的也是KMS激活方式，只不过用的密钥管理服务器是搭建在自己VPS上的。</p>
+<p>在Win10桌面状态下，右键Windows图标或按快捷键win+x，点击命令提示符（管理员）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /upk </span><br><span class="line">slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX #需要先在网上找到一个激活码</span><br><span class="line">slmgr /skms zh.us.to #这里我改成了自己的服务器域名 </span><br><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure>
+<p>第一条命令，slmgr.vbs /upk ，是用于<strong>卸载</strong>当前电脑的密钥</p>
+<p>第二条命令，slmgr /ipk xxxx，其中xxxx是<strong>密钥</strong>，一般用上面的密钥即可</p>
+<p>第三条命令，slmgr /skms zh.us.to ，是设置kms服务器地址，一般很多kms地址<strong>失效</strong>，可以尝试其他地址，如kms.xspace.in，<strong>kms.shuax.com</strong>、skms.ddns.net 等等</p>
+<p>第四条命令，slmgr /ato ，是<strong>激活命令</strong>，连接到kms服务器进行windows激活。</p>
+<p>P.S.</p>
+<p>slmgr.vbs -dlv:这条命令可以查看详细的激活信息。</p>
+<p>slmgr.vbs -xpr:这条命令可以查看过期时间。</p>
+<p>再说下关于数字权利激活（OEM激活）。前面提到，这种激活是永久的，而且是绑定主板信息的。也就是说，如果更换了电脑硬盘，内存条，网卡等硬件，只要主板在，全新安装Win10后（版本要对应上），联网即可激活。</p>
+
+		  	  
+	</div>
+
+	<div class="article-bottom">
+		<a class="article-readmore" href="/2020/12/20/Windows激活方法/">Continue</a> 	
+	</div>	
+    
+</article>     
+     	
+    	  	
+  		
+    			
+
+<article class="article">		
+	
+	<div class="article-header">
+	    
 		<a class="article-title" href="/2020/11/22/攻防世界「Web」——新手练习/">攻防世界「Web」——新手练习</a>  
 	       
 		 
@@ -497,9 +559,9 @@
 			
 				<span class="iconfont icon-star"></span>
 				            
-						<a class="article-tag" href="/tags/linux/">linux</a>           
-				            
 						<a class="article-tag" href="/tags/ubuntu/">ubuntu</a>           
+				            
+						<a class="article-tag" href="/tags/linux/">linux</a>           
 				
 			
 
@@ -527,54 +589,6 @@
     
 </article>     
      	
-    	  	
-  		
-    			
-
-<article class="article">		
-	
-	<div class="article-header">
-	    
-		<a class="article-title" href="/2019/06/02/Ubuntu的计划任务/">Ubuntu的计划任务</a>  
-	       
-		 
-
-		<div class="article-meta">
-			<time>Jun 02, 2019</time>
-			
-				<span class="iconfont icon-star"></span>
-				            
-						<a class="article-tag" href="/tags/linux/">linux</a>           
-				            
-						<a class="article-tag" href="/tags/ubuntu/">ubuntu</a>           
-				
-			
-
-			<!-- <span id="busuanzi_container_page_pv">
-					Total views:<span id="busuanzi_value_page_pv"></span>
-			</span> -->
-
-		</div>
-	</div>
-
-
-	
-
-    
-	<div class="typo article-excerpt">	
-		
-			<p>因为最近倒腾着Ubuntu，但是想着每天都要执行：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">update</span></span><br><span class="line">sudo apt <span class="keyword">upgrade</span></span><br></pre></td></tr></table></figure>
-<p>来更新自己的软件，就有点烦。而且经常忘记。所以这个时候就发现了Crontab这种好用的软件。（<strong>懒癌患者救星</strong>）</p>
-		  	  
-	</div>
-
-	<div class="article-bottom">
-		<a class="article-readmore" href="/2019/06/02/Ubuntu的计划任务/">Continue</a> 	
-	</div>	
-    
-</article>     
-     	
 
 
 
@@ -583,7 +597,7 @@
    <nav class="paginator">
     
 
-   <span class="page-number"> Page <strong>1</strong>, Total <strong>18</strong> . </span>
+   <span class="page-number"> Page <strong>1</strong>, Total <strong>19</strong> . </span>
 
     
         <a class="next" href="/page/2/"> 
@@ -695,7 +709,7 @@ ga('send', 'pageview');
 
 		<!-- <div class="theme-info"> -->
 			<!-- <div class="powered-by"></div> -->
-		<span class="post-count"> | Total 22.3k words</span>
+		<span class="post-count"> | Total 22.9k words</span>
 		<!-- </div> -->
 
 		<br>

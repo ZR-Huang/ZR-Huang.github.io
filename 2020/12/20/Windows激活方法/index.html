@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  写在开头 |   大黄 </title>
+  <title>  Windows激活方法 |   大黄 </title>
 
  
   
@@ -79,18 +79,18 @@
 	
 <div class="post-header">
 	<p class="post-title">	
-		写在开头
+		Windows激活方法
 	</p>
 
 	<div class="post-info">	
 		<span class="post-info-entry">
-			Dec 09, 2018
+			Dec 20, 2020
 		</span>
 
 		
 		
 			<i class="iconfont icon-words"></i>
-			<span class="post-info-entry">316
+			<span class="post-info-entry">959
 			</span>
 		
 
@@ -107,15 +107,24 @@
 		
 
 			
-					<p>其实吧，在今年的一月份的时候，我就用Git Pages搭过一个博客。</p>
-<p>可能是出于还不明白自己到底想要通过博客去实现什么？</p>
-<p>在花了近一年的时间，在知乎，简书以及公众号上断断续续地发文，我想我现在已经摸索到了一点自己想要的东西所在的方位。</p>
-<p>在这一年中，我看到过一句话，给我留下非常深刻的印象，大意是：<strong>在实现目标的过程中，不断地去跟别人强调自己在做什么以及自己的进度的人，往往实现不了目标</strong>。</p>
-<p>这一年来自己多多少少也算是走南闯北了，经历了不少的事情。</p>
-<p>昨天给一个在美国的老友说了一声生日祝福，她说：“你看起来老了很多”。</p>
-<p>哈哈哈哈哈，毕竟上年纪了呀。</p>
-<p>嘘～🤫，接下来，就让我们静静等待2019年的来临。</p>
-<p>看看这个博客，会发生神奇的变化吧。</p>
+					<a id="more"></a>
+<p>作为一个安全专业的，在使用破解版的Windows系统或者使用网络上现有的一些破解工具时总是不太放心。但是苦于没钱买正版，就只能使用一种相对的比较靠谱一点的激活方式。</p>
+<h3 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h3><p>Win7的话，我曾经找到过一个可以用的激活码，不知道现在还能不能用。</p>
+<blockquote>
+<p>RHTBY-VWY6D-QJRJ9-JGQ3X-Q2289</p>
+</blockquote>
+<h3 id="Windows-10"><a href="#Windows-10" class="headerlink" title="Windows 10"></a>Windows 10</h3><p>Win10与之前的与之前的windows版本一样，有<strong>家庭版</strong>、<strong>专业版</strong>、<strong>企业版</strong>等各个版本。Win10的激活方式也有<strong>Retail零售版激活</strong>、<strong>OEM版激活</strong>、<strong>VOL版激活</strong>（包括KMS激活等方式）等方式。其中OEM是根据主板信息自动联网激活，属于永久激活的，而KMS激活是180天自动循环，属于未购买win10的用户用的比较多的一种激活方式，许多激活软件就是依据KMS激活的原理，如KMSpico,小马激活等。</p>
+<p>我这里使用的也是KMS激活方式，只不过用的密钥管理服务器是搭建在自己VPS上的。</p>
+<p>在Win10桌面状态下，右键Windows图标或按快捷键win+x，点击命令提示符（管理员）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /upk </span><br><span class="line">slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX #需要先在网上找到一个激活码</span><br><span class="line">slmgr /skms zh.us.to #这里我改成了自己的服务器域名 </span><br><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure>
+<p>第一条命令，slmgr.vbs /upk ，是用于<strong>卸载</strong>当前电脑的密钥</p>
+<p>第二条命令，slmgr /ipk xxxx，其中xxxx是<strong>密钥</strong>，一般用上面的密钥即可</p>
+<p>第三条命令，slmgr /skms zh.us.to ，是设置kms服务器地址，一般很多kms地址<strong>失效</strong>，可以尝试其他地址，如kms.xspace.in，<strong>kms.shuax.com</strong>、skms.ddns.net 等等</p>
+<p>第四条命令，slmgr /ato ，是<strong>激活命令</strong>，连接到kms服务器进行windows激活。</p>
+<p>P.S.</p>
+<p>slmgr.vbs -dlv:这条命令可以查看详细的激活信息。</p>
+<p>slmgr.vbs -xpr:这条命令可以查看过期时间。</p>
+<p>再说下关于数字权利激活（OEM激活）。前面提到，这种激活是永久的，而且是绑定主板信息的。也就是说，如果更换了电脑硬盘，内存条，网卡等硬件，只要主板在，全新安装Win10后（版本要对应上），联网即可激活。</p>
   	
 					
 	  </div>     
@@ -213,7 +222,7 @@
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/随记/">随记</a>    
+            <a class="tag-link" href="/tags/Windows/">Windows</a>    
         	
   </div>
 
@@ -223,15 +232,15 @@
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
+      <a href="/2020/11/22/攻防世界「Web」——新手练习/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <a class="post-nav-title" href="/2020/11/22/攻防世界「Web」——新手练习/">
+          攻防世界「Web」——新手练习</a>
+      </a>
+  
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2018/12/10/配置SSR代理笔记/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <a class="post-nav-title" href="/2018/12/10/配置SSR代理笔记/">
-            配置SSR代理笔记</a>
-        </a>
     
   </div>
 
@@ -262,7 +271,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Windows-7"><span class="toc-inner-text">Windows 7</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Windows-10"><span class="toc-inner-text">Windows 10</span></a></li></ol>
 			</div>
 		</div>
 	</div>
