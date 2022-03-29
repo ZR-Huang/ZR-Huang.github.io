@@ -1,113 +1,158 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  
-  
-  <title>  攻防世界「Web」——新手练习 |   大黄 </title>
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
 
- 
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="author" content="H2r">
+  <meta name="description" content="不太懂安全的算法苦手">
   
+  
+  <title>
+    
+      攻防世界「Web」——新手练习 
+      
+      
+      |
+    
+     H2R&#39;s Blog
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
     <link rel="icon" href="/images/favicon.png">
   
 
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/nayo.min.css"> 
-</head>  
-  <body>   
-    
-      <header class="header">
-	
-  <nav class="header-inner">        
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
 
-    <span class="iconfont icon-menu mobile-toggle"></span>   	
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
-    <div class="header-logo">
-      <a href="/">
-        <img class="header-logo-img" src="/images/logo.png">
-      </a>
-    </div>
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  <script src="/js/fancybox.js"></script>
 
-    <div class="header-menu">          
-              
-          
-            <a class="header-menu-link" id="header-menu-home" href="/">
-              <i class="iconfont icon-home">  
-            </i></a>     
-          
-              
-          
-            <a class="header-menu-link" id="header-menu-archives" href="/archives">
-              <i class="iconfont icon-archives">  
-            </i></a>     
-          
-              
-          
-            <a class="header-menu-link" id="header-menu-tags" href="/tags">
-              <i class="iconfont icon-tags">  
-            </i></a>     
-          
-              
-          
-            <a class="header-menu-link" id="header-menu-about" href="/about">
-              <i class="iconfont icon-about">  
-            </i></a>     
-          
-              
-          
-              <a class="header-menu-link" id="header-menu-search">
-                <i class="iconfont icon-search">  
-              </i></a>
-          
-                  
-    </div>  
-    
-  </nav>
-</header>
-
-   
-
-      <div class="container">       
-          
-          
-            <div class="container-inner">  
-          
-
-          <article class="post">
   
-	
-<div class="post-header">
-	<p class="post-title">	
-		攻防世界「Web」——新手练习
-	</p>
 
-	<div class="post-info">	
-		<span class="post-info-entry">
-			Nov 22, 2020
-		</span>
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
 
-		
-		
-			<i class="iconfont icon-words"></i>
-			<span class="post-info-entry">3564
-			</span>
-		
+</head>
 
-		<!-- <span id="busuanzi_container_page_pv">
-				Total views:<span id="busuanzi_value_page_pv"></span>
-		</span> -->
-	</div>
-</div> 
-	
- 
 
-	  <div class="typo post-content slideDownMin">
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Oranges</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">categories</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
 
-		
+<script src="/js/activeNav.js"></script>
 
-			
-					<p>简单地记录一下自己「攻防世界」练习题目中Web部分的WriteUp。</p>
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">攻防世界「Web」——新手练习</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="更新时间"></i>
+          2020-11-22 14:54:47
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags" title="标签"></i>
+                
+                <span class="span--tag">
+                  <a href="/tags/Web安全/" title="Web安全">
+                    <b>#</b> Web安全
+                  </a>
+                </span>
+                
+                <span class="span--tag">
+                  <a href="/tags/CTF/" title="CTF">
+                    <b>#</b> CTF
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>简单地记录一下自己「攻防世界」练习题目中Web部分的WriteUp。</p>
 <a id="more"></a>
 <h2 id="01-View-Source"><a href="#01-View-Source" class="headerlink" title="01 View Source"></a>01 View Source</h2><blockquote>
 <p>X老师让小宁同学查看一个网页的源代码，但小宁同学发现鼠标右键好像不管用了。</p>
@@ -133,20 +178,20 @@
 <p>打开题目，页面提示index.php的备份文件名。</p>
 <p>其实，我也不知道index.php的备份文件名是啥？想着去google上搜一下，结果出来的都是这道题目的WriteUP了。还是自己试着猜猜看吧。</p>
 <p>现在URL中输入了 “index.php.backup”，提示 “Not Found”。然后又试了一下 “index.php.bak”，下载了一个文本文件。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic3.zhimg.com/80/v2-2d929f680450baac7c099f1556a4109e_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-2d929f680450baac7c099f1556a4109e_1440w.jpg" alt="img"></p>
 <h2 id="04-cookie"><a href="#04-cookie" class="headerlink" title="04 cookie"></a>04 cookie</h2><blockquote>
 <p>X老师告诉小宁他在cookie里放了些东西，小宁疑惑地想：‘这是夹心饼干的意思吗？’</p>
 </blockquote>
 <p>打开题目后提示是否知道cookie，然后F12打开控制台选择网络。重新刷新页面后，选择题目页面，能看到在HTTP响应头中存在set-cookie:look-here=cookie.php.</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic4.zhimg.com/80/v2-1fe392bab4ed64405196bf98567e2fab_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-1fe392bab4ed64405196bf98567e2fab_1440w.jpg" alt="img"></p>
 <p>在URL中输入cookie.php，得到页面响应和HTTP响应头。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic2.zhimg.com/80/v2-81da5535210d59dfe9634f8b298ab079_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-81da5535210d59dfe9634f8b298ab079_1440w.jpg" alt="img"></p>
 <h2 id="05-disabled-button"><a href="#05-disabled-button" class="headerlink" title="05 disabled_button"></a>05 disabled_button</h2><blockquote>
 <p>X老师今天上课讲了前端知识，然后给了大家一个不能按的按钮，小宁惊奇地发现这个按钮按不下去，到底怎么才能按下去呢？</p>
 </blockquote>
 <p>网页中的页面，给了标有”flag”字样的按钮，但是无法点击。</p>
 <p>右键检查元素后，发现这个按钮有个disabled属性。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic4.zhimg.com/80/v2-d8d345ad72945599f9d3b72145d24fd7_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-d8d345ad72945599f9d3b72145d24fd7_1440w.jpg" alt="img"></p>
 <p>直接删除这个disabled属性后，页面上的按钮就变为可点击状态。</p>
 <p>点击按钮后，就可以获得flag。</p>
 <p><a href="https://pic3.zhimg.com/80/v2-ef90790f4d0a9030b482bc5ac3a29a3a_1440w.jpg" target="_blank" rel="noopener">https://pic3.zhimg.com/80/v2-ef90790f4d0a9030b482bc5ac3a29a3a_1440w.jpg</a></p>
@@ -159,51 +204,51 @@
 <h2 id="07-simple-php"><a href="#07-simple-php" class="headerlink" title="07 simple_php"></a>07 simple_php</h2><blockquote>
 <p>小宁听说php是最好的语言,于是她简单学习之后写了几行php代码。</p>
 </blockquote>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic4.zhimg.com/80/v2-9e06903b27267ee69bcf13e90c32e3cb_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-9e06903b27267ee69bcf13e90c32e3cb_1440w.jpg" alt="img"></p>
 <p>看到题目是php的代码审计，要对判断条看到题目是php的代码审计，要对判断条件进行绕过，从而输出flag。件进行绕过，从而输出flag。</p>
 <p>看到题目是php的代码审计，要对判断条件进行绕过，从而输出flag。针对变量a，看到a既要等于0又要判断为真。看起来是有点矛盾的。</p>
 <p>上网查了一下<a href="https://www.cnblogs.com/Mrsm1th/p/6745532.html" target="_blank" rel="noopener">php的弱类型比较</a>的知识之后，发现判断语句还是比较好绕过的。</p>
 <p>\$a=’test’，在进行数值比较时，\$a会进行强制类型转换，变成0，从而\$a==0成立，此时\$a也为真。</p>
 <p>b=’2000test’，在进行数值比较时，b会进行强制类型转换，变成2000，从而\$b&gt;1234成立，此时\$b不为数字。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic2.zhimg.com/80/v2-e5fe862e5ee3ad2d17239ef8b7e89629_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-e5fe862e5ee3ad2d17239ef8b7e89629_1440w.jpg" alt="img"></p>
 <h2 id="08-get-post"><a href="#08-get-post" class="headerlink" title="08 get_post"></a>08 get_post</h2><blockquote>
 <p>X老师告诉小宁同学HTTP通常使用两种请求方法，你知道是哪两种吗？</p>
 </blockquote>
 <p>题目中提示用GET方式提交一个名为a,值为1的变量，那可以直接在url中提交。</p>
 <p>提交完后，显示再用POST方式提交一个名为b，值为2的变量。这里我使用burpsuite进行抓包修改。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic4.zhimg.com/80/v2-11d269fc6423c6e16f587398b51504a7_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-11d269fc6423c6e16f587398b51504a7_1440w.jpg" alt="img"></p>
 <p>发包之后，就能直接拿到flag了。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic3.zhimg.com/80/v2-02c4b90ec33a0d48f56c02f67476f3e6_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-02c4b90ec33a0d48f56c02f67476f3e6_1440w.jpg" alt="img"></p>
 <h2 id="09-xff-referer"><a href="#09-xff-referer" class="headerlink" title="09 xff_referer"></a>09 xff_referer</h2><blockquote>
 <p>X老师告诉小宁其实xff和referer是可以伪造的。</p>
 </blockquote>
 <p>首先去查了一下什么是<a href="https://zh.wikipedia.org/wiki/X-Forwarded-For" target="_blank" rel="noopener">xff</a>和<a href="https://zh.wikipedia.org/wiki/HTTP參照位址" target="_blank" rel="noopener">referer</a>。</p>
 <p>题目提示IP地址必须为123.123.123.123，用burpsuite抓包后，新增一个X-Forwarded-For: 123.123.123.123头部字段。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic4.zhimg.com/80/v2-2a936bd4a256ddc6e5c7925c7d091e53_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-2a936bd4a256ddc6e5c7925c7d091e53_1440w.jpg" alt="img"></p>
 <p>发包后，页面提示必须来自“<a href="https://link.zhihu.com/?target=https%3A//www.google.com" target="_blank" rel="noopener">https://www.google.com</a>”。</p>
 <p>再刷新一次页面，用burpsuite在http头部中添加X-Forwarded-For: 123.123.123.123和Referer: <a href="https://link.zhihu.com/?target=https%3A//www.google.com" target="_blank" rel="noopener">https://www.google.com</a></p>
 <p>发包后，获得flag。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic2.zhimg.com/80/v2-c1ca19fde3e3875edbc5173146303f65_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-c1ca19fde3e3875edbc5173146303f65_1440w.jpg" alt="img"></p>
 <h2 id="10-webshell"><a href="#10-webshell" class="headerlink" title="10 webshell"></a>10 webshell</h2><blockquote>
 <p>小宁百度了php一句话,觉着很有意思,并且把它放在index.php里。</p>
 </blockquote>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic2.zhimg.com/80/v2-0f4d23078521a608edcc50302394d53d_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-0f4d23078521a608edcc50302394d53d_1440w.jpg" alt="img"></p>
 <p>页面上显示的是php的一句话木马。</p>
 <p>用burpsuite发送构造post包。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic4.zhimg.com/80/v2-3091ed51486aa5cb990a3103d1c103bb_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-3091ed51486aa5cb990a3103d1c103bb_1440w.jpg" alt="img"></p>
 <p>根据返回的结果可以看到flag.txt的路径。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic3.zhimg.com/80/v2-7ed53adac030f2c59c288435497af3e2_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-7ed53adac030f2c59c288435497af3e2_1440w.jpg" alt="img"></p>
 <p>再次用burpsuite构造post包，来输出flag.txt的内容。shell=system(‘cat /var/www/html/flag.txt’);</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic2.zhimg.com/80/v2-d628f36ffb91f4b31a614c11618a8ab9_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-d628f36ffb91f4b31a614c11618a8ab9_1440w.jpg" alt="img"></p>
 <h2 id="11-command-injection"><a href="#11-command-injection" class="headerlink" title="11 command_injection"></a>11 command_injection</h2><blockquote>
 <p>小宁写了个ping功能,但没有写waf,X老师告诉她这是非常危险的，你知道为什么吗。</p>
 </blockquote>
 <p>题目中给了一个ping命令的执行窗口，可以输入要ping的地址。</p>
 <p>尝试了一下是否存在命令注入，输入payload=’| ls’。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic3.zhimg.com/80/v2-1121bbed7d773c1f27f3568cb1edd8be_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-1121bbed7d773c1f27f3568cb1edd8be_1440w.jpg" alt="img"></p>
 <p>存在命令注入，为了查找flag文件的路径，输入payload=”| find / -type f -name “flag*””。</p>
 <p>第一个应该就是要找的flag，可以用cat命令来输出内容。</p>
-<p><img src="/images/placeholder.png" alt="img" data-src="https://pic2.zhimg.com/80/v2-44401fc5b6b0375b3bce9297ce38e19d_1440w.jpg" class="lazyload"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-44401fc5b6b0375b3bce9297ce38e19d_1440w.jpg" alt="img"></p>
 <h2 id="12-simple-js"><a href="#12-simple-js" class="headerlink" title="12 simple_js"></a>12 simple_js</h2><blockquote>
 <p>小宁发现了一个网页，但却一直输不对密码。(Flag格式为 Cyberpeace{xxxxxxxxx} )</p>
 </blockquote>
@@ -216,279 +261,390 @@
 <p>用这串新的ASCII码，去替换原来的pass，并修改p += String.fromCharCode(tab2[17]);为p += String.fromCharCode(tab2[10]);这句代码其实是拼接最后一个字符。</p>
 <p>用console.log(pass);就可以得到结果为786OsErtk12。</p>
 <p>所以flag就是 Cyberpeace{786OsErtk12}.</p>
-  	
-					
-	  </div>     
-	  
 
-	<div class="post-footer">
-
-
-  <div class="post-footer-other">
-    
-      <span class="post-footer-item">
-        
-
-
-<span class="donate-btn">
-	<span class="iconfont icon-donate"></span>
-</span>
-
-<div id="donate-box" class="sildeUpMin">
-
-	<span class="donate-cancel iconfont icon-cancel"></span>
-
-	<div class="donate-img-box">
-		<img id="donate-qr-wechat" class="noLazyLoad donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate1.png">	
-		<img id="donate-qr-alipay" class="noLazyLoad donate-img lazyload" src="/images/placeholder.png" alt="No Donate Image!" data-src="/images/donate2.png">	
-	</div>
-
-	<span class="donate-word">可以请我喝杯咖啡吗？</span>
-
-	<div class="donate-list">
-		<span class="iconfont icon-donate-wechat"></span>
-		<span class="iconfont icon-donate-alipay"></span>
-	</div>
-
-</div>
- 
-      </span>        
-       
-    
-      <span class="post-footer-item">
-        <span class="share-btn">
-	<span class="iconfont icon-share"></span>
-</span>
-<div class="-mob-share sildeUpMin">
-	<ul class="-mob-inner">
-	   			             
-        <li class="iconfont 
-		icon-share-qq 
-		-mob-share-qq 
-		-mob-share-link"></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-weixin 
-		-mob-share-weixin 
-		-mob-share-link"></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-weibo 
-		-mob-share-weibo 
-		-mob-share-link"></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-douban 
-		-mob-share-douban 
-		-mob-share-link"></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-facebook 
-		-mob-share-facebook 
-		-mob-share-link"></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-twitter 
-		-mob-share-twitter 
-		-mob-share-link"></li>		
-   	   			             
-        <li class="iconfont 
-		icon-share-google 
-		-mob-share-google 
-		-mob-share-link"></li>		
-   	   
-	</ul>
-</div>	
-
-
-<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
-      </span>  
-               
-  </div>  
-    
-
-
-  <div class="post-footer-meta">
-        	
-
-        
-          <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/CTF/">CTF</a> <a class="tag-link" href="/tags/Web安全/">Web安全</a>    
-        	
-  </div>
-
-</div>
-
-
-<nav class="post-footer-nav">
-  <div class="post-footer-link">
-  
-      <a href="/2020/11/13/一场名为「投资」的博弈/" id="post-nav-older" class="post-nav-link-wrap">
-        <strong class="post-nav-caption">older</strong>
-        
-          <a class="post-nav-title" href="/2020/11/13/一场名为「投资」的博弈/">
-          一场名为「投资」的博弈</a>
-      </a>
-  
-  </div>
-  <div class="post-footer-link">
-    
-        <a href="/2020/12/20/Windows激活方法/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <a class="post-nav-title" href="/2020/12/20/Windows激活方法/">
-            Windows激活方法</a>
-        </a>
-    
-  </div>
-
-</nav>
- 
-	
-
-    <div id="disqus_thread"></div>
-    <script>
-    (function() { 
-    var d = document, s = d.createElement('script');
-    s.src = 'https://'+'https-zr-huang-github-io'+'.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());    
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-
-    <noscript>Please enable JavaScript to view the  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-    </noscript>
-
-
-	
-</article>
-
-	<div class="toc-container">
-			<div class="toc-sidebar">
-			<p class="toc-title">
-				Contents
-			</p>
-			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#01-View-Source"><span class="toc-inner-text">01 View Source</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#02-Robots"><span class="toc-inner-text">02 Robots</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#03-backup"><span class="toc-inner-text">03 backup</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#04-cookie"><span class="toc-inner-text">04 cookie</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#05-disabled-button"><span class="toc-inner-text">05 disabled_button</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#06-weak-auth"><span class="toc-inner-text">06 weak_auth</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#07-simple-php"><span class="toc-inner-text">07 simple_php</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#08-get-post"><span class="toc-inner-text">08 get_post</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#09-xff-referer"><span class="toc-inner-text">09 xff_referer</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#10-webshell"><span class="toc-inner-text">10 webshell</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#11-command-injection"><span class="toc-inner-text">11 command_injection</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#12-simple-js"><span class="toc-inner-text">12 simple_js</span></a></li></ol>
-			</div>
-		</div>
-	</div>
-
-          </div> 
-      </div>            
-    
-    <a id="page-backTop">
-      <span>
-        <i class="iconfont icon-backtotop"></i>
-      </span>
-    </a> 
-
-  
-    
-    <div class="search-container sildeUpMin">
-        <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
-            <span class="search-cancel">
-                <i class="iconfont icon-cancel">
-            </i></span>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2020/11/13/一场名为「投资」的博弈/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="更新时间"></i>
+              2020-11-22 14:54:47
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags" title="标签"></i>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/Web安全/" title="Web安全">
+                        <b>#</b> Web安全
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag">
+                      <a href="/tags/CTF/" title="CTF">
+                        <b>#</b> CTF
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2020/12/20/Windows激活方法/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
-        <div id="search-result" class="search-result"></div>
+      
     </div>
- 
-     <div class="mobile-menu">      
-
-      
-      <img class="mobile-menu-icon lazyload" src="/images/placeholder.png" data-src="/images/favicon.png">   
-      
-
-         
-            
-
-            <a class="mobile-menu-link" href="/">Home
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/archives">Archives
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/tags">Tags
-            </a>
-            
-         
-            
-
-            <a class="mobile-menu-link" href="/about">About
-            </a>
-            
-         
-                          
-
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
-            
-         
-      
-</div>        
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-View-Source"><span class="toc-text">01 View Source</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-Robots"><span class="toc-text">02 Robots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-backup"><span class="toc-text">03 backup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-cookie"><span class="toc-text">04 cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-disabled-button"><span class="toc-text">05 disabled_button</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-weak-auth"><span class="toc-text">06 weak_auth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#07-simple-php"><span class="toc-text">07 simple_php</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#08-get-post"><span class="toc-text">08 get_post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#09-xff-referer"><span class="toc-text">09 xff_referer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-webshell"><span class="toc-text">10 webshell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-command-injection"><span class="toc-text">11 command_injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-simple-js"><span class="toc-text">12 simple_js</span></a></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
 
 
 
-
-<script>
-(function(i,s,o,g,r,a,m){
-	i['GoogleAnalyticsObject']=r;
-	i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-175900460-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-
-     
     
+      <div class="comments-container">
+        
 
 
-<footer id="footer">	    
-		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-		
-		<div class="footer-copyright">
-		&copy;
-				
-		2018-
-		
-		2021		
-	
-		大黄
 
-		<!-- <div class="powered-by"> -->
-		<!-- <i class="fa fa-user-md"></i> -->
-		<span id="busuanzi_container_site_uv">
-			| Total visitors:<span id="busuanzi_value_site_uv"></span>
-		</span>
-		<!-- </div> -->
 
-		<!-- <div class="theme-info"> -->
-			<!-- <div class="powered-by"></div> -->
-		<span class="post-count"> | Total 22.9k words</span>
-		<!-- </div> -->
 
-		<br>
 
-		Modified from Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a> by Roger
-		</div>
-					
-	 
-</footer>
 
-   
+      </div>
+    
+  </div>
 
-    <script src="/nayo.bundle.js"></script>           
-  </body>        
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2022 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Searching...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  <script src="/js/colorscheme.js"></script>
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E3%80%8CWeb%E3%80%8D%E2%80%94%E2%80%94%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0 + '&url=' + https%3A%2F%2Fblog.hzr.gold%2F2020%2F11%2F22%2F%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E3%80%8CWeb%E3%80%8D%E2%80%94%E2%80%94%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://blog.hzr.gold/2020/11/22/攻防世界「Web」——新手练习/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  <script src="/js/shares.js"></script>
+
+
+      </div>
+    </div>
+  </body>
 </html>
