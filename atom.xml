@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>H2R&#39;s Blog</title>
+  <icon>https://blog.hzr.gold/icon.png</icon>
+  <subtitle>THINK MORE, CODE MORE</subtitle>
+  <link href="https://blog.hzr.gold/atom.xml" rel="self"/>
+  
+  <link href="https://blog.hzr.gold/"/>
+  <updated>2020-12-20T07:00:33.946Z</updated>
+  <id>https://blog.hzr.gold/</id>
+  
+  <author>
+    <name>H2r</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows激活方法</title>
+    <link href="https://blog.hzr.gold/2020/12/20/Windows%E6%BF%80%E6%B4%BB%E6%96%B9%E6%B3%95/"/>
+    <id>https://blog.hzr.gold/2020/12/20/Windows%E6%BF%80%E6%B4%BB%E6%96%B9%E6%B3%95/</id>
+    <published>2020-12-20T06:45:22.000Z</published>
+    <updated>2020-12-20T07:00:33.946Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;作为一个安全专业的，在使用破解版的Windows系统或者使用网络上现有的一些破解工具时总是不太放心。但是苦于没钱买正版，就只能使用一种相对的比较靠谱一点的激活方式。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Windows" scheme="https://blog.hzr.gold/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>攻防世界「Web」——新手练习</title>
+    <link href="https://blog.hzr.gold/2020/11/22/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E3%80%8CWeb%E3%80%8D%E2%80%94%E2%80%94%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0/"/>
+    <id>https://blog.hzr.gold/2020/11/22/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%E3%80%8CWeb%E3%80%8D%E2%80%94%E2%80%94%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0/</id>
+    <published>2020-11-22T06:54:47.000Z</published>
+    <updated>2020-11-22T07:27:49.706Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;简单地记录一下自己「攻防世界」练习题目中Web部分的WriteUp。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Web安全" scheme="https://blog.hzr.gold/tags/Web安全/"/>
+    
+    <category term="CTF" scheme="https://blog.hzr.gold/tags/CTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一场名为「投资」的博弈</title>
+    <link href="https://blog.hzr.gold/2020/11/13/%E4%B8%80%E5%9C%BA%E5%90%8D%E4%B8%BA%E3%80%8C%E6%8A%95%E8%B5%84%E3%80%8D%E7%9A%84%E5%8D%9A%E5%BC%88/"/>
+    <id>https://blog.hzr.gold/2020/11/13/%E4%B8%80%E5%9C%BA%E5%90%8D%E4%B8%BA%E3%80%8C%E6%8A%95%E8%B5%84%E3%80%8D%E7%9A%84%E5%8D%9A%E5%BC%88/</id>
+    <published>2020-11-13T14:32:53.000Z</published>
+    <updated>2020-11-13T15:56:09.480Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;《哈佛投资课》，刘长江编著。&lt;/p&gt;
+&lt;p&gt;推荐指数：🌟🌟&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="读书" scheme="https://blog.hzr.gold/tags/读书/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020纪实</title>
+    <link href="https://blog.hzr.gold/2020/10/01/2020%E7%BA%AA%E5%AE%9E/"/>
+    <id>https://blog.hzr.gold/2020/10/01/2020%E7%BA%AA%E5%AE%9E/</id>
+    <published>2020-10-01T00:20:00.000Z</published>
+    <updated>2020-10-01T00:20:04.979Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;记录我记忆中的2020&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="随记" scheme="https://blog.hzr.gold/tags/随记/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[DVWA]命令注入</title>
+    <link href="https://blog.hzr.gold/2020/09/17/DVWA-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/"/>
+    <id>https://blog.hzr.gold/2020/09/17/DVWA-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/</id>
+    <published>2020-09-17T09:17:33.000Z</published>
+    <updated>2020-09-30T23:47:50.880Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DVWA系列主要是我在找工作记录当中复习Web安全的基础和练习的一个框架。因为在秋招面试过程当中，多次被面试官吐槽说安全技能基础薄弱。所以，为了能抓紧秋招上岸，我还是好好练练吧。&lt;/p&gt;
+&lt;p&gt;今天是“命令注入部分”。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Web安全" scheme="https://blog.hzr.gold/tags/Web安全/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理解平凡女性的小部分生活</title>
+    <link href="https://blog.hzr.gold/2020/02/06/%E7%90%86%E8%A7%A3%E5%B9%B3%E5%87%A1%E5%A5%B3%E6%80%A7%E7%9A%84%E7%94%9F%E6%B4%BB/"/>
+    <id>https://blog.hzr.gold/2020/02/06/%E7%90%86%E8%A7%A3%E5%B9%B3%E5%87%A1%E5%A5%B3%E6%80%A7%E7%9A%84%E7%94%9F%E6%B4%BB/</id>
+    <published>2020-02-06T06:47:04.000Z</published>
+    <updated>2020-11-13T14:35:45.435Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;女人，承受了太多别人觉得你应该承受的”义务“。&lt;/p&gt;
+&lt;p&gt;​                                                            ——读《82年生的金智英》&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="读书" scheme="https://blog.hzr.gold/tags/读书/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode Competitions - 166</title>
+    <link href="https://blog.hzr.gold/2019/12/09/LeetCode-Competitions-166/"/>
+    <id>https://blog.hzr.gold/2019/12/09/LeetCode-Competitions-166/</id>
+    <published>2019-12-09T05:35:55.000Z</published>
+    <updated>2020-08-20T14:21:25.482Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Rank: 350/1675。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;[Solved] stands for that the problems are solved in the competition.&lt;/li&gt;
+&lt;li&gt;[Unsolved] stands for that I failed to solve them in the competition.&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="LeetCode" scheme="https://blog.hzr.gold/tags/LeetCode/"/>
+    
+    <category term="算法" scheme="https://blog.hzr.gold/tags/算法/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode Competitions - 165</title>
+    <link href="https://blog.hzr.gold/2019/12/09/LeetCode-Competitions-165/"/>
+    <id>https://blog.hzr.gold/2019/12/09/LeetCode-Competitions-165/</id>
+    <published>2019-12-09T05:32:28.000Z</published>
+    <updated>2020-08-20T14:19:13.155Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;全国排名为786/1659。在比赛中只解出了第一题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;[Solved] 表示在比赛中解出。&lt;/li&gt;
+&lt;li&gt;[Unsolved] 表示在比赛中未能解出。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="LeetCode" scheme="https://blog.hzr.gold/tags/LeetCode/"/>
+    
+    <category term="算法" scheme="https://blog.hzr.gold/tags/算法/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode Competitions - 164</title>
+    <link href="https://blog.hzr.gold/2019/12/09/LeetCode-Competitions-164/"/>
+    <id>https://blog.hzr.gold/2019/12/09/LeetCode-Competitions-164/</id>
+    <published>2019-12-09T05:29:36.000Z</published>
+    <updated>2020-08-20T14:21:40.067Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这是第一次参加LeetCode的周赛，全国排名为762/1675。在比赛中只解出了前两题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;[Solved] 表示在比赛中解出。&lt;/li&gt;
+&lt;li&gt;[Unsolved] 表示在比赛中未能解出。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="LeetCode" scheme="https://blog.hzr.gold/tags/LeetCode/"/>
+    
+    <category term="算法" scheme="https://blog.hzr.gold/tags/算法/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu设置pac全局代理</title>
+    <link href="https://blog.hzr.gold/2019/06/02/Ubuntu%E8%AE%BE%E7%BD%AEpac%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/"/>
+    <id>https://blog.hzr.gold/2019/06/02/Ubuntu%E8%AE%BE%E7%BD%AEpac%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86/</id>
+    <published>2019-06-02T06:11:50.000Z</published>
+    <updated>2020-08-20T14:20:35.262Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本机环境&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Distributor &lt;span class=&quot;string&quot;&gt;ID:&lt;/span&gt;	Ubuntu&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;Description:&lt;/span&gt;	Ubuntu &lt;span class=&quot;number&quot;&gt;18.04&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.1&lt;/span&gt; LTS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;Release:&lt;/span&gt;	&lt;span class=&quot;number&quot;&gt;18.04&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;Codename:&lt;/span&gt;	bionic&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    
+    <category term="ubuntu" scheme="https://blog.hzr.gold/tags/ubuntu/"/>
+    
+    <category term="linux" scheme="https://blog.hzr.gold/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu的计划任务</title>
+    <link href="https://blog.hzr.gold/2019/06/02/Ubuntu%E7%9A%84%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1/"/>
+    <id>https://blog.hzr.gold/2019/06/02/Ubuntu%E7%9A%84%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1/</id>
+    <published>2019-06-02T06:11:30.000Z</published>
+    <updated>2020-08-20T14:19:21.026Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;因为最近倒腾着Ubuntu，但是想着每天都要执行：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt &lt;span class=&quot;keyword&quot;&gt;update&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt &lt;span class=&quot;keyword&quot;&gt;upgrade&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;来更新自己的软件，就有点烦。而且经常忘记。所以这个时候就发现了Crontab这种好用的软件。（&lt;strong&gt;懒癌患者救星&lt;/strong&gt;）&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="ubuntu" scheme="https://blog.hzr.gold/tags/ubuntu/"/>
+    
+    <category term="linux" scheme="https://blog.hzr.gold/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>v2ray搭建与基础配置</title>
+    <link href="https://blog.hzr.gold/2019/06/02/v2ray%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/"/>
+    <id>https://blog.hzr.gold/2019/06/02/v2ray%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</id>
+    <published>2019-06-02T06:05:18.000Z</published>
+    <updated>2020-12-20T06:42:23.808Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以下都是我自己实验一天的过程，因为每个人的计算机环境不同，情况不同。不保证全都能正常完成配置，如遇到新的错误或者问题，可以留言一起讨论。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.hzr.gold/tags/linux/"/>
+    
+    <category term="v2ray" scheme="https://blog.hzr.gold/tags/v2ray/"/>
+    
+    <category term="科学上网" scheme="https://blog.hzr.gold/tags/科学上网/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>warftp漏洞利用实验</title>
+    <link href="https://blog.hzr.gold/2019/04/24/warftp%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%AE%9E%E9%AA%8C/"/>
+    <id>https://blog.hzr.gold/2019/04/24/warftp%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%AE%9E%E9%AA%8C/</id>
+    <published>2019-04-24T06:18:55.000Z</published>
+    <updated>2020-10-29T02:55:15.524Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;一-漏洞分析&quot;&gt;&lt;a href=&quot;#一-漏洞分析&quot; class=&quot;headerlink&quot; title=&quot;一 漏洞分析&quot;&gt;&lt;/a&gt;一 漏洞分析&lt;/h2&gt;&lt;h3 id=&quot;1-1-验证漏洞&quot;&gt;&lt;a href=&quot;#1-1-验证漏洞&quot; class=&quot;headerlink&quot; title=&quot;1.1 验证漏洞&quot;&gt;&lt;/a&gt;1.1 验证漏洞&lt;/h3&gt;&lt;p&gt;在Windows XP虚拟机中，使用OllyDbg装载war-ftp1.6.5，并运行程序。允许匿名登录FTP。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Exploit" scheme="https://blog.hzr.gold/tags/Exploit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>迟来的总结</title>
+    <link href="https://blog.hzr.gold/2019/01/19/%E8%BF%9F%E6%9D%A5%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>https://blog.hzr.gold/2019/01/19/%E8%BF%9F%E6%9D%A5%E7%9A%84%E6%80%BB%E7%BB%93/</id>
+    <published>2019-01-19T03:41:25.000Z</published>
+    <updated>2020-08-20T14:29:46.673Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;终于，坐上回去的高铁，虽然是先去上海玩两天。很庆幸这次高铁是复兴号，能让我这个基本上很少坐高铁的人感受下复兴号有没有推背感。😆&lt;/p&gt;
+&lt;p&gt;不知不觉，自己读研居然也有半年了，只是一直都找不到空闲的时间，做做自己想做的事情。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="随记" scheme="https://blog.hzr.gold/tags/随记/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>元旦的气息～</title>
+    <link href="https://blog.hzr.gold/2018/12/23/%E5%85%83%E6%97%A6%E7%9A%84%E6%B0%94%E6%81%AF%EF%BD%9E/"/>
+    <id>https://blog.hzr.gold/2018/12/23/%E5%85%83%E6%97%A6%E7%9A%84%E6%B0%94%E6%81%AF%EF%BD%9E/</id>
+    <published>2018-12-23T14:50:16.000Z</published>
+    <updated>2020-08-20T14:29:40.939Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天，虽然23号离元旦还有一周，学院还是办了一个元旦晚会。同样今天也是考研结束的日子，在这里祝愿自己的小女友能够获得她心仪的offer，让她这半年的辛苦没有白费。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="随记" scheme="https://blog.hzr.gold/tags/随记/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac读写外接硬盘的几个建议</title>
+    <link href="https://blog.hzr.gold/2018/12/16/Mac%E8%AF%BB%E5%86%99%E5%A4%96%E6%8E%A5%E7%A1%AC%E7%9B%98%E7%9A%84%E5%87%A0%E4%B8%AA%E5%BB%BA%E8%AE%AE/"/>
+    <id>https://blog.hzr.gold/2018/12/16/Mac%E8%AF%BB%E5%86%99%E5%A4%96%E6%8E%A5%E7%A1%AC%E7%9B%98%E7%9A%84%E5%87%A0%E4%B8%AA%E5%BB%BA%E8%AE%AE/</id>
+    <published>2018-12-16T03:18:34.000Z</published>
+    <updated>2020-08-20T14:21:14.896Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这篇是&lt;strong&gt;新手向&lt;/strong&gt;，&lt;strong&gt;小白向&lt;/strong&gt;，CS相关专业的大佬，或者熟练使用计算机的同学，可以关掉了。&lt;/p&gt;
+&lt;p&gt;相信用Mac的同学，都有个很难受的问题，就是Mac自带的固态硬盘太小。想在购机的时候就买大容量硬盘，那个价格都够买一箱子的机械了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="MacOS" scheme="https://blog.hzr.gold/tags/MacOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python3多进程</title>
+    <link href="https://blog.hzr.gold/2018/12/11/Python3%E5%A4%9A%E8%BF%9B%E7%A8%8B/"/>
+    <id>https://blog.hzr.gold/2018/12/11/Python3%E5%A4%9A%E8%BF%9B%E7%A8%8B/</id>
+    <published>2018-12-11T12:47:34.000Z</published>
+    <updated>2020-08-20T14:21:03.797Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;由于这两天自己负责的数据处理模块，都涉及到IO密集的数据读写，为了能够加快处理速度和调试速度，就想着使用Python的多进程，顺便借此机会，系统地学习一下Python的多进程。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="https://blog.hzr.gold/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置SSR代理笔记</title>
+    <link href="https://blog.hzr.gold/2018/12/10/%E9%85%8D%E7%BD%AESSR%E4%BB%A3%E7%90%86%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.hzr.gold/2018/12/10/%E9%85%8D%E7%BD%AESSR%E4%BB%A3%E7%90%86%E7%AC%94%E8%AE%B0/</id>
+    <published>2018-12-10T10:16:25.000Z</published>
+    <updated>2020-12-20T06:15:31.658Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;如何自建一个SSR代理？这次笔记主要从服务器和客户端两部分配置来说明。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="linux" scheme="https://blog.hzr.gold/tags/linux/"/>
+    
+    <category term="科学上网" scheme="https://blog.hzr.gold/tags/科学上网/"/>
+    
+    <category term="ssr" scheme="https://blog.hzr.gold/tags/ssr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写在开头</title>
+    <link href="https://blog.hzr.gold/2018/12/09/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/"/>
+    <id>https://blog.hzr.gold/2018/12/09/%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/</id>
+    <published>2018-12-09T09:08:44.000Z</published>
+    <updated>2020-08-20T14:19:52.608Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;其实吧，在今年的一月份的时候，我就用Git</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随记" scheme="https://blog.hzr.gold/tags/随记/"/>
+    
+  </entry>
+  
+</feed>
